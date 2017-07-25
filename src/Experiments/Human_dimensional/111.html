@@ -1,0 +1,281 @@
+<html>
+<head>
+<style type="text/css">
+#myCanvas {
+    //border: 1px #000 solid;
+    //background:#fff;
+}
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="1300" height="1000"></canvas>
+<script>
+var canvas = document.getElementById('myCanvas');
+var mainCanvas = document.querySelector("#myCanvas");
+var context = document.getElementById('myCanvas').getContext('2d');
+var canvasWidth = mainCanvas.width;
+var canvasHeight = mainCanvas.height;
+var i = 1;
+var flag = 0;
+    var mouseX=0;
+    var mouseY=0;
+    var dx;
+    var dy;
+    var dist;
+    var dx1;
+    var dy1;
+    var dist1;
+    var dx2;
+    var dy2;
+    var dist2;
+    var dx3;
+    var dy3;
+    var dist3;
+context.onclick = next();
+context.fillStyle = "black";
+context.font = "bold 15px Arial";
+context.fillText("Back",15,362);
+context.fillText("Next",15,302);
+context.fillText("Pause",13,242);
+context.fillText("Play",15,182);
+ context.beginPath();
+   context.arc(30,150,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+    context.font = "bold 12px Arial";
+     context.fillText("|>",30-5,150+3);
+   context.beginPath();
+   context.arc(30,210,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+ context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+    context.font = "bold 15px Arial";
+    context.fillText("||",30-5,210+3);
+    context.beginPath();
+   context.arc(30,270,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 15px Arial";
+   context.fillText(">>",30-8,270+3);
+   context.beginPath();
+   context.arc(30,330,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+   context.lineWidth = 2;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 15px Arial";
+   context.fillText("<<",30-8,330+3);
+
+/*function drawPoint() 
+{
+   context.beginPath();
+   context.arc(93,93,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(211,134,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(277.8,259.8,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(259,339.3,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(108,417.3,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(281,163,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(333,279,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();   
+   context.beginPath();
+   context.arc(295,425.5,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(194.1,496,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+
+}*/
+var my_pic1 = new Image();
+var my_pic2 = new Image();
+var my_pic3 = new Image();
+var my_pic4 = new Image();
+var my_pic5 = new Image();
+var my_pic6 = new Image();
+var my_pic7 = new Image();
+var my_pic8 = new Image();
+my_pic1.src = "g.png";
+my_pic2.src = "h.png";
+my_pic3.src = "a.png";
+my_pic4.src = "b.png";
+my_pic5.src = "c.png";
+my_pic6.src = "d.png";
+my_pic7.src = "e.png";
+my_pic8.src = "f.png";
+/*var p1 = new Image();
+var p2 = new Image();
+var p3 = new Image();*/
+/*var p4 = new Image();
+var p5 = new Image();
+var p6 = new Image();
+var p7 = new Image();
+var p8 = new Image();*/
+/*p1.src = "a1.png";
+p2.src = "a2.png";
+p3.src = "a3.png";*/
+/*p4.src = "44.png";
+p5.src = "55.png";
+p6.src = "66.png";
+p7.src = "77.png";
+p8.src = "88.png";*/
+function draw() {
+if(i==1)
+{
+context.drawImage(my_pic1, 60, 50,1000,700);
+//context.drawImage(p1, 70, 580);
+}
+else if(i==2)
+{
+context.drawImage(my_pic2, 60, 50,1000,700);
+//context.drawImage(p1, 70, 500);
+}
+//reference point for display
+else if(i==3)
+{
+context.drawImage(my_pic3, 60, 50,1000,700);
+//context.drawImage(p3, 70, 580);
+}
+else if(i==4)
+{
+context.drawImage(my_pic4, 60, 50,1000,700);
+//context.drawImage(p2, 70, 500);
+}
+else if(i==5)
+{
+context.drawImage(my_pic5, 60, 50,1000,700);
+//context.drawImage(p3, 70, 500);
+}
+else if(i==6)
+{
+context.drawImage(my_pic6, 60, 50,1000,700);
+//context.drawImage(p6, 70, 580);
+}
+else if(i==7)
+{
+context.drawImage(my_pic7, 60, 50,1000,700);
+//context.drawImage(p7, 70, 580);
+}
+else if(i==8)
+{
+context.drawImage(my_pic8, 60, 50,1000,700);
+//context.drawImage(p8, 70, 580);
+}
+if(flag==0)
+{
+if(i==8)
+{
+i=1;
+}
+}
+}
+window.requestAnimationFrame(function loop() {
+context.clearRect(60, 70, 1200, 1000);
+if(flag==0){
+i +=1;
+}
+//drawBoard();
+//drawPoint();
+draw();
+ if(flag==0){
+setTimeout(function() {
+window.requestAnimationFrame(loop);
+},700);
+}
+else
+{
+window.requestAnimationFrame(loop);
+}
+});
+function next()
+{
+context.canvas.addEventListener('click',function(event){
+mouseX=event.clientX - context.canvas.offsetLeft;
+mouseY=event.clientY - context.canvas.offsetTop;
+dx=mouseX-30;
+dy=mouseY-150;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+dx1=mouseX-30;
+dy1=mouseY-210;
+dist1=Math.sqrt((dx1*dx1)+(dy1*dy1));
+dx2=mouseX-30;
+dy2=mouseY-270;
+dist2=Math.sqrt((dx2*dx2)+(dy2*dy2));
+dx3=mouseX-30;
+dy3=mouseY-330;
+dist3=Math.sqrt((dx3*dx3)+(dy3*dy3));
+if(dist<=15){
+flag=0;
+}
+else if(dist1<=15){
+flag=1;
+}
+else if(dist2<=15){
+flag=1;
+if(i<8)
+{
+i +=1;
+}
+}
+else if(dist3<15){
+flag=1;
+if(i!=1)
+{
+i -=1;
+}
+}
+});
+}
+</script>
+</body>
+</html>

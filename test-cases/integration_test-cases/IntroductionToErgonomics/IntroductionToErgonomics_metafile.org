@@ -1,0 +1,8 @@
+S.no		Test case link
+1. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_01_usability_smk.org][IntroductionToErgonomics_01_usability_smk.org]]
+2. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_02_home_smk.org][IntroductionToErgonomics_02_home_smk.org]]
+3. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_03_procedure_smk.org][IntroductionToErgonomics_03_procedure_smk.org]]
+4. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_04_statisticalmethod_smk.org][IntroductionToErgonomics_04_statisticalmethod_smk.org]]
+5. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_05_reference_smk.org][IntroductionToErgonomics_05_reference_smk.org]]
+6. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_06_people_smk.org][IntroductionToErgonomics_06_people_smk.org]]
+7. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/IntroductionToErgonomics/IntroductionToErgonomics_07_experiments_smk.org][IntroductionToErgonomics_07_experiments_smk.org]]

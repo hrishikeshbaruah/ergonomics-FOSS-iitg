@@ -1,0 +1,271 @@
+<! DOCTYPE html>
+<html>
+<head>
+
+<style>
+#myCanvas
+{
+  width: 800px; 
+  height: 1000px; 
+  //border: 1px solid black;
+  
+}
+
+</style>
+
+</head>
+<body>
+<h2 align="center"><span style="color:red">Step 1:</span>Click the image below and press<br/>
+"right arrow", "left arrow" key on the<br/>keyboard to move the bus chair of long<br/>distance travelling bus.</h2>
+<canvas id='myCanvas' onclick="stop_func()"></canvas>
+<script>
+  var x=0;
+	var y=0;
+	
+	var count=19;
+  window.addEventListener('keydown',check,false);
+
+	function check(e) {
+    //alert(e.keyCode);
+	 if (e.keyCode == 37){
+       // alert("You pressed the Left arrow key");
+	   count=count-1;
+	   if(count<1)
+	   {
+	     count=1;
+	   }
+	   
+	    if(count==18)
+		{
+		var x1=left(img18);
+		}
+		else if(count==17)
+		{
+		var x1=left(img17);
+		}
+		else if(count==16)
+		{
+		left(img16);
+		}
+		else if(count==15)
+		{
+		left(img15);
+		}
+		else if(count==14)
+		{
+		left(img14);
+		}
+		else if(count==13)
+		{
+		left(img13);
+		}
+		else if(count==12)
+		{
+		left(img12);
+		}
+		else if(count==11)
+		{
+		left(img11);
+		}
+		else if(count==10)
+		{
+		left(img10);
+		}
+		else if(count==9)
+		{
+		left(img9);
+		}
+		else if(count==8)
+		{
+		left(img8);
+		}
+		else if(count==7)
+		{
+		left(img7);
+		}
+		else if(count==6)
+		{
+		left(img6);
+		}
+		else if(count==5)
+		{
+		left(img5);
+		}
+		else if(count==4)
+		{
+		left(img4);
+		}
+		else if(count==3)
+		{
+		left(img3);
+		}
+		else if(count==2)
+		{
+		left(img2);
+		}
+		else if(count==1)
+		{
+		left(img1);
+		}
+		}
+		else if(e.keyCode == 39)
+		{
+		//	alert("You pressed the right arrow key");
+			
+			//var x2=right(img2);
+			
+			count=count+1;
+			if(count>18)
+			{
+			 count=19;
+			 left(img19);
+			}
+	    if(count==18)
+		{
+		var x1=left(img18);
+		}
+		else if(count==17)
+		{
+		var x1=left(img17);
+		}
+		else if(count==16)
+		{
+		left(img16);
+		}
+		else if(count==15)
+		{
+		left(img15);
+		}
+		else if(count==14)
+		{
+		left(img14);
+		}
+		else if(count==13)
+		{
+		left(img13);
+		}
+		else if(count==12)
+		{
+		left(img12);
+		}
+		else if(count==11)
+		{
+		left(img11);
+		}
+		else if(count==10)
+		{
+		left(img10);
+		}
+		else if(count==9)
+		{
+		left(img9);
+		}
+		else if(count==8)
+		{
+		left(img8);
+		}
+		else if(count==7)
+		{
+		left(img7);
+		}
+		else if(count==6)
+		{
+		left(img6);
+		}
+		else if(count==5)
+		{
+		left(img5);
+		}
+		else if(count==4)
+		{
+		left(img4);
+		}
+		else if(count==3)
+		{
+		left(img3);
+		}
+		else if(count==2)
+		{
+		left(img2);
+		}
+		else if(count==1)
+		{
+		left(img1);
+		}
+		}
+	}
+  var c=document.getElementById("myCanvas");
+   var ctx = c.getContext("2d");
+
+	
+	ctx.fillStyle="white";
+	//important lines as they set the perfect width and height of canvas..
+	c.width  = c.scrollWidth;
+    c.height = c.scrollHeight;
+	
+	
+  var img1 = new Image();
+  var img2= new Image();
+  var img3= new Image();
+  var img4= new Image();
+  var img5= new Image();
+  var img6= new Image();
+  var img7= new Image();
+  var img8= new Image();
+  var img9= new Image();
+  var img10= new Image();
+  var img11= new Image();
+  var img12= new Image();
+  var img13= new Image();
+  var img14= new Image();
+  var img15= new Image();
+  var img16= new Image();
+  var img17= new Image();
+  var img18= new Image();
+  var img19= new Image();
+	
+	
+	img19.src="19.png";
+	img18.src="18.png";
+	img17.src="17.png";
+	img16.src="16.png";
+	img15.src="15.png";
+	img14.src="14.png";
+	img13.src="13.png";
+	img12.src="12.png";
+	img11.src="11.png";
+	img10.src="10.png";
+	img9.src="9.png";
+	img8.src="8.png";
+	img7.src="7.png";
+	img6.src="6.png";
+	img5.src="5.png";
+	img4.src="4.png";
+	img3.src="3.png";
+	img2.src="2.png";
+	img1.src="1.png";
+	//this onload function is necessary for the image to be  perfectly loaded into the canvas....
+	
+	window.onload = function()
+	{
+			
+		ctx.drawImage(img19,x,y,400,300);
+   
+    }
+   
+  
+  
+  
+  
+  function left(x1)
+  {
+    //common code in every... if else statement...
+    ctx.fillRect(x,y,400,300);
+    ctx.drawImage(x1,x,y,400,300);
+   }
+  
+
+</script>
+
+</body>
+</html>

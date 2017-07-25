@@ -1,0 +1,44 @@
+* Author: ABINASHA BOARH
+* Date Created: 05 May 2016
+* Environment
+ - OS: Windows 7,Ubuntu-16.04,CentOS-6
+ - Browsers: Firefox-42.0,Chrome-47.0,Chromium-45.0
+ - Bandwidth : 100Mbps
+ - Hardware Configuration:8GB RAM ,
+ - Processor:i7
+
+* Objective
+
+    To perform the Quiz of the Squatting posture experiment
+
+* Pre conditions
+
+ 1. Open the url vlabs.ac.in and vlabs home page is displayed
+
+ 2. Click on IIT-Guwahati and a list of labs is displayed on the screen
+
+ 3. Select Ergonomics Lab for Assessing Physical Aspects of Design, a home page is displayed and click on List of experiments link, where a list of experiments will be displayed on the screen
+
+ 4. Selected “Squatting posture” experiment.
+
+* Post conditions
+
+    Content page of Squatting posture experiment will be displayed.
+
+* Test Steps
+ 1. Clicked on the Quiz link
+
+ 2. Select the answers for the corresponding questions by clicking on the options
+
+ 3. After completion click on the Refresh link to refresh the page.
+
+
+* Expected result
+
+ 1. Quiz page is opened.
+
+ 2. Result is displayed for the questions
+   
+ 3. On clicking on the refresh link the page will be cleared.
+
+* Review comments

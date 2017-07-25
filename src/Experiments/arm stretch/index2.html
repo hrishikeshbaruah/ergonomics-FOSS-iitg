@@ -1,0 +1,1079 @@
+<html>
+    <head>
+<style>
+canvas {
+    border: 3px #000 solid;
+}
+</style>
+
+    </head>
+    <body style=" background: white;">
+        <canvas id="canvas" width="700px" height="620px" style="background: #fff;     magrin:20px;"></canvas>
+        <script type="text/javascript" language="javascript">
+    var bw = 540;
+    var bh = 380;
+    var imageObj8=new Image();
+    var imageObj2=new Image();
+    var imageObj3=new Image();
+    var imageObj4=new Image();
+    var imageObj5=new Image();
+    var imageObj6=new Image();
+    var imageObj7=new Image();
+    var p = 10;
+    var cw = bw + (p*2) + 1;
+    var ch = bh + (p*2) + 1;
+    var z=1;
+    var x=20;
+    var i=190;
+    var flag=0;
+    var dx;
+    var dy;
+    var dist;
+    var dx1;
+    var dy1;
+    var dist1;
+     var dx2;
+    var dy2;
+    var dist2;
+    var dx3;
+    var dy3;
+    var dist3;
+    var dx4;
+    var dy4;
+    var dist4;
+    var mouseX;
+    var mouseY;
+    var arr = new Array("Upper","position","height");
+    var arr1 = new Array("Mid","position","height");
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+   //Designing buttons
+   context.beginPath();
+   context.arc(665,150,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'red';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 15px Arial";
+   context.fillText("<-",665-7,150+3);
+   context.beginPath();
+   context.arc(665,195,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'red';
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 15px Arial";
+   context.fillText("->",665-7,195+3);
+   context.beginPath();
+   context.arc(665,240,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'red';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 12px Arial";
+   context.fillText("Stop",665-13,240+3);
+   context.beginPath();
+   context.arc(665,285,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'red';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 12px Arial";
+   context.fillText("Next",665-13,285+3);
+  context.beginPath();
+   context.arc(665,330,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'red';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 12px Arial";
+   context.fillText("Back",665-13.7,330+3);
+   context.closePath();
+   context.onclick=next();
+     
+      
+   // grid function
+   function drawBoard(){
+    for (var x = 40; x <= bw; x += 20) {
+        context.moveTo(0.5 + x + p, p+40);
+        context.lineTo(0.5 + x + p, bh + p);
+    }
+
+
+    for (var x = 40; x <= bh; x += 20) {
+        context.moveTo(p+40, 0.5 + x + p);
+        context.lineTo(bw + p, 0.5 + x + p);
+    }
+
+    context.strokeStyle = "black";
+    context.lineWidth=1;
+    context.stroke();
+  
+    }
+    // coordinate axis function
+    function drawCoordinateAxis(){
+          context.beginPath();
+          context.moveTo(0.5+180+p,p+40);
+          context.lineTo(0.5+180+p,bh+p);
+          context.lineWidth=3.5;
+           context.strokeStyle='red';
+          context.stroke();
+           context.beginPath();
+          context.moveTo(0.5+180+p,bh+p);
+          context.lineTo(bw+p,0.5+380+p);
+          context.lineWidth=3.5;
+          context.strokeStyle='red';
+          context.stroke();
+          
+      
+      
+    }
+    //drawing first figure
+function draw_fig1(){
+        //context.strokeStyle='black';
+       
+      context.beginPath(); 
+      context.strokeStyle='black';     
+     context.moveTo(0.5+180+p,p);
+     context.lineTo(0.5+180+p,p+93);
+     context.lineWidth=3.5;
+     context.stroke();
+     context.beginPath();      
+     context.moveTo(0.5+180+p,p+20);
+     context.lineTo(bw+p,p+20);
+     context.lineWidth=3.5;
+     context.stroke();
+     context.closePath();
+       
+  imageObj8.src ='image1.png';
+   context.drawImage(imageObj8, 170, 97);
+             
+     
+    
+}
+
+    
+
+       //drawing second figure
+     function draw_fig2(){
+        //context.strokeStyle='black';
+       
+      context.beginPath(); 
+      context.strokeStyle='black';     
+     context.moveTo(0.5+180+p,p+92);
+     context.lineTo(0.5+180+p,p+180);
+     context.lineWidth=3.5;
+     context.stroke();
+     context.beginPath();      
+     context.moveTo(0.5+180+p,p+140);
+     context.lineTo(bw+p,p+140);
+     context.lineWidth=3.5;
+     context.stroke();
+     context.closePath();
+       
+  imageObj2.src ='image2.png';
+   context.drawImage(imageObj2, 170, 160);
+}
+
+  //drawing third figure
+ function draw_fig3(){
+     imageObj3.src ='image3.png';
+   context.drawImage(imageObj3, 174, 208);
+      
+        //context.strokeStyle='black';
+       
+      context.beginPath(); 
+      context.strokeStyle='black';     
+     context.moveTo(0.5+180+p,p+240);
+     context.lineTo(0.5+180+p,p+340);
+     context.lineWidth=3.5;
+     context.stroke();
+     context.beginPath();      
+     context.moveTo(0.5+180+p,p+300);
+     context.lineTo(bw+p,p+300);
+     context.lineWidth=3.5;
+     context.stroke();
+     context.closePath();
+       
+    
+}
+ 
+    
+
+   var requestAnimationFrame =  
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        function(callback) {
+          return setTimeout(callback, 400);
+        };
+ window.requestAnimationFrame(function loop() {
+     context.clearRect(0,0,641.5,600);
+    // for automatic animation
+    if(flag==0)
+       {
+          
+        i=i+10;
+        
+       }
+
+      
+    context.clearRect(0,0,644.5,600);
+
+
+     
+     drawBoard();
+     drawCoordinateAxis();
+     
+     
+           
+     
+     //context.fill();
+
+     
+     context.fillStyle='black';
+         if(z==1){          // 1st fig
+         if(i==190){
+
+      draw_fig1();
+     context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;   
+    }
+
+        
+         if(i==200){
+
+      draw_fig1();
+     context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;   
+    }
+
+   
+   else if(i==210){
+     
+     draw_fig1();
+     context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==220){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==230){
+        // imageObj1.src ='xxx.png';
+        draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+    //  i=i+20;
+     
+    }
+    
+      else if(i==240){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==250){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==260){
+        draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==270){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+      //i=i+15;
+     
+    }
+    else if(i==280){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+         imageObj4.src ='Capturex1.png';
+
+     // i=i+15;
+     
+    }
+    else if(i==290){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+     else if(i==300){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==310){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+    //  i=i+15;
+     
+    }
+    else if(i==320){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+     // i=i+15;
+     
+    }
+   else if(i==330){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+        
+    }
+     else if(i==340){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+      context.beginPath();
+      context.setLineDash([8]);
+     context.moveTo(0.5+180+p,p+70);
+     context.lineTo(0.5+340+p,p+70);
+     context.moveTo(0.5+360+p,p+95);
+     context.lineTo(0.5+360+p,bh+10);
+     
+     context.strokeStyle = 'red';
+    //context.closePath();
+     context.stroke();
+     context.setLineDash([0,0]);
+     context.beginPath();      
+     context.moveTo(0.5+342+p,p+60);
+     context.lineTo(0.5+342+p,p+120);
+     context.lineWidth=3.5
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+      context.beginPath();      
+     context.moveTo(0.5+310+p,p+93);
+     context.lineTo(0.5+420+p,p+93);
+     context.lineWidth=3.5;
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+     context.fillStyle='blue';
+     context.font = "bold 17px Arial";
+     context.fillText("53",355,85);
+     context.fillText("54",380,98);
+     context.font = "bold 13px Arial";
+      context.fillText("Upper position length",205,100);
+      for(var r= 1; r <= arr.length; r++){
+           context.fillText(arr[r-1],0.5+360+p+5,180+r*18);      
+        }
+    
+      context.fillStyle='black';
+     context.font = "bold 25px Arial";
+    context.fillText("^",362,118);
+    context.fillText(">",340,p+80);
+   context.drawImage(imageObj4, 0, 420);
+  
+      
+    }
+  else if(i==350){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+    }
+  else if(i==360){
+       draw_fig1();
+       context.fillRect(0.5+i+p,p,3,95);
+    }
+  
+   else if(i==370){
+   //  draw_fig1();
+     //context.fillRect(0.5+i+p,p,3,95);
+     z++;
+     i=190;
+}
+    
+  
+}
+  if(z==2){      //2nd fig
+        
+         if(i==190){
+
+      draw_fig2();
+     context.fillRect(0.5+i+p,p+90,3,90);
+     // i=i+15;
+     
+    }
+
+         if(i==200){
+
+      draw_fig2();
+     context.fillRect(0.5+i+p,p+90,3,90);
+     // i=i+15;
+     
+    }
+
+   
+   else if(i==210){
+    
+  
+     
+     draw_fig2();
+     context.fillRect(0.5+i+p,p+90,3,90);
+     // i=i+15;
+     
+    }
+    else if(i==220){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,90);
+     // i=i+15;
+     
+    }
+    else if(i==230){
+   
+        draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,95);
+    //  i=i+20;
+     
+    }
+    
+      else if(i==240){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,95);
+     // i=i+15;
+     
+    }
+    else if(i==250){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,97);
+     // i=i+15;
+     
+    }
+    else if(i==260){
+        draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==270){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+      //i=i+15;
+     
+    }
+    else if(i==280){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+     
+   
+
+     // i=i+15;
+     
+    }
+    else if(i==290){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+     // i=i+15;
+     
+    }
+     else if(i==300){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==310){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+        imageObj5.src ='Capturey1.png';
+    //  i=i+15;
+     
+    }
+    else if(i==320){
+       draw_fig2();
+       context.fillRect(0.5+i+p,p+90,3,100);
+     // i=i+15;
+     
+    }
+   else if(i==320){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+    }
+   else if(i==330){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+    }
+   else if(i==340){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+    }
+   else if(i==350){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+    }
+   else if(i==360){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+    }
+   else if(i==370){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+     context.beginPath();
+     context.setLineDash([8]);
+     context.moveTo(0.5+180+p,p+210);
+     context.lineTo(0.5+360+p,p+210);
+     context.moveTo(0.5+410+p,p+190);
+     context.lineTo(0.5+410+p,bh+10);
+     
+     context.strokeStyle = 'red';
+    //context.closePath();
+     context.stroke();
+     context.setLineDash([0,0]);
+     context.beginPath();      
+     context.moveTo(0.5+372+p,p+175);
+     context.lineTo(0.5+372+p,p+232);
+     context.lineWidth=3.5
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+      context.beginPath();      
+     context.moveTo(0.5+350+p,p+193);
+     context.lineTo(0.5+440+p,p+193);
+     context.lineWidth=3.5;
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+     context.fillStyle='blue';
+     context.font = "bold 17px Arial";
+     context.fillText("55",352,227);
+     context.fillText("56",436,p+209);
+     context.font = "bold 13px Arial";
+      context.fillText("Mid position length",260,240);
+       for(var r= 1; r <= arr.length; r++){
+           context.fillText(arr1[r-1],0.5+410+p+5,250+r*18);      
+        }   
+     
+      context.font = "bold 11px Arial";
+      context.fillText("(Forward arm reach)",267,250);
+     
+       context.fillStyle='black';
+     context.font = "bold 25px Arial";
+    context.fillText("^",410.5,p+209.4);
+     context.fillText(">",0.5+358+p,p+220);
+   context.drawImage(imageObj5, 0, 420);
+  
+ 
+        
+    }
+   else if(i==380){
+       draw_fig2();   
+       context.fillRect(0.5+i+p,p+90,3,100);
+    }
+   
+   
+   else if(i==390){
+   //  draw_fig2();
+     //context.fillRect(0.5+i+p,p+90,3,100);
+     z++;
+     i=190; context.beginPath();
+          
+}
+    
+  
+}
+ if(z==3){         //3rd fig
+        
+         if(i==190){
+
+      draw_fig3();
+       
+  
+     context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+
+         if(i==200){
+
+      draw_fig3();
+     context.fillRect(0.5+i+p,p+240,3,100)
+     // i=i+15;
+     
+    }
+
+   
+   else if(i==210){
+    
+  
+     
+     draw_fig3();
+     context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==220){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==230){
+   
+        draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+    //  i=i+20;
+     
+    }
+    
+      else if(i==240){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==250){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==260){
+        draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==270){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+      //i=i+15;
+     
+    }
+    else if(i==280){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     
+   
+
+     // i=i+15;
+     
+    }
+    else if(i==290){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+         imageObj6.src ='Capturez1.png';
+     // i=i+15;
+     
+    }
+     else if(i==300){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+    else if(i==310){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+    //  i=i+15;
+     
+    }
+    else if(i==320){
+       draw_fig3();
+       context.fillRect(0.5+i+p,p+240,3,100);
+     // i=i+15;
+     
+    }
+   else if(i==320){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+    }
+   else if(i==330){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+       context.beginPath();
+      context.setLineDash([8]);
+     context.moveTo(0.5+180+p,p+350);
+     context.lineTo(0.5+330+p,p+350);
+     context.moveTo(0.5+349+p,p+341);
+     context.lineTo(0.5+349+p,bh+10);
+     
+     context.strokeStyle = 'red';
+    //context.closePath();
+     context.stroke();
+     context.setLineDash([0,0]);
+     context.beginPath();      
+     context.moveTo(0.5+335+p,p+320);
+     context.lineTo(0.5+335+p,p+365);
+     context.lineWidth=3.5
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+      context.beginPath();      
+     context.moveTo(0.5+290+p,p+341);
+     context.lineTo(0.5+360+p,p+341);
+     context.lineWidth=3.5;
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+     context.fillStyle='blue';
+     context.font = "bold 17px Arial";
+     context.fillText("57",300,360);
+     context.fillText("58",365,368);
+     context.font = "bold 13px Arial";
+      context.fillText("Lower position length",205,377)
+      context.fillText("Lower position height",375,379)
+      //context.font = "bold 11px Arial";
+      //context.fillText("(Forward arm reach)",278,210)
+        context.fillStyle='black';
+     context.font = "bold 25px Arial";
+    context.fillText("^",0.5+351+2,p+337+18.5);
+     context.fillText(">",0.5+322+p,p+359);
+   
+   context.drawImage(imageObj6, 0, 420);
+  
+    }
+   else if(i==340){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+      
+     
+    }
+   else if(i==350){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+    }
+   else if(i==360){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+    }
+   else if(i==370){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+    }
+   else if(i==380){
+       draw_fig3();   
+       context.fillRect(0.5+i+p,p+240,3,100);
+    }
+   
+   
+   else if(i==390){
+   //  draw_fig3();
+     //context.fillRect(0.5+i+p,p+240,3,100);
+     z++;
+     i=190;
+}
+    
+  
+}
+      if(z==4){            // all 3 fig together
+         imageObj7.src ='imag4.png';
+       context.drawImage(imageObj7, 176, 97);
+       context.beginPath();
+      context.setLineDash([8]);
+     context.moveTo(0.5+180+p,p+70);
+     context.lineTo(0.5+340+p,p+70);
+     context.moveTo(0.5+360+p,p+95);
+     context.lineTo(0.5+360+p,bh+10);
+     
+     context.strokeStyle = 'red';
+    //context.closePath();
+     context.stroke();
+     context.setLineDash([0,0]);
+     context.beginPath();      
+     context.moveTo(0.5+342+p,p+60);
+     context.lineTo(0.5+342+p,p+120);
+     context.lineWidth=3.5
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+      context.beginPath();      
+     context.moveTo(0.5+310+p,p+93);
+     context.lineTo(0.5+420+p,p+93);
+     context.lineWidth=3.5;
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+     context.fillStyle='blue';
+     context.font = "bold 17px Arial";
+     context.fillText("53",355,85);
+     context.fillText("54",380,98);
+     context.font = "bold 13px Arial";
+      context.fillText("Upper position length",205,100);
+       for(var r= 1; r <= arr.length; r++){
+           context.fillText(arr[r-1],0.5+360+p+5,100+r*18);      
+        }
+    
+       context.fillStyle='black';
+     context.font = "bold 25px Arial";
+      context.fillText(">",340,p+80);
+    context.fillText("^",362,118);
+     
+    context.beginPath();
+   context.setLineDash([8]);
+     context.moveTo(0.5+180+p,p+210);
+     context.lineTo(0.5+360+p,p+210);
+     context.moveTo(0.5+410+p,p+190);
+     context.lineTo(0.5+410+p,bh+10);
+     
+     context.strokeStyle = 'red';
+    //context.closePath();
+     context.stroke();
+     context.setLineDash([0,0]);
+     context.beginPath();      
+     context.moveTo(0.5+372+p,p+175);
+     context.lineTo(0.5+372+p,p+232);
+     context.lineWidth=3.5
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+      context.beginPath();      
+     context.moveTo(0.5+350+p,p+193);
+     context.lineTo(0.5+440+p,p+193);
+     context.lineWidth=3.5;
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+     context.fillStyle='blue';
+     context.font = "bold 17px Arial";
+     context.fillText("55",362,227);
+     context.fillText("56",436,p+209);
+     context.font = "bold 13px Arial";
+      context.fillText("Mid position length",260,240);
+       for(var r= 1; r <= arr.length; r++){
+           context.fillText(arr1[r-1],0.5+410+p+5,250+r*18);      
+        }   
+     
+          context.font = "bold 11px Arial";
+      context.fillText("(Forward arm reach)",267,250)
+       context.fillStyle='black';
+ 
+     context.font = "bold 25px Arial";
+    context.fillText("^",410.5,p+209.4);
+     context.fillText(">",0.5+358+p,p+220);
+    
+     context.beginPath();
+      context.setLineDash([8]);
+     context.moveTo(0.5+180+p,p+350);
+     context.lineTo(0.5+330+p,p+350);
+     context.moveTo(0.5+349+p,p+341);
+     context.lineTo(0.5+349+p,bh+10);
+     
+     context.strokeStyle = 'red';
+    //context.closePath();
+     context.stroke();
+     context.setLineDash([0,0]);
+     context.beginPath();      
+     context.moveTo(0.5+335+p,p+320);
+     context.lineTo(0.5+335+p,p+365);
+     context.lineWidth=3.5
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+      context.beginPath();      
+     context.moveTo(0.5+290+p,p+341);
+     context.lineTo(0.5+360+p,p+341);
+     context.lineWidth=3.5;
+     context.strokeStyle = 'red';
+     context.stroke();
+     context.closePath();
+     context.fillStyle='blue';
+     context.font = "bold 17px Arial";
+     context.fillText("57",300,360);
+     context.fillText("58",365,368);
+     context.font = "bold 13px Arial";
+      context.fillText("Lower position length",205,377)
+      context.fillText("Lower position height",375,379)
+      //context.font = "bold 11px Arial";
+      //context.fillText("(Forward arm reach)",278,210)
+     context.fillStyle='black';
+     context.font = "bold 25px Arial";
+    context.fillText("^",0.5+351+2,p+337+18.5);
+      context.fillText(">",0.5+322+p,p+359);
+}
+     if(z==5){
+   draw_fig2();
+    context.fillRect(0.5+190+p,p+90,3,100);
+    i=190;
+
+}
+
+if(z==6){
+   
+    draw_fig3();
+    context.fillRect(0.5+190+p,p+240,3,100);
+    i=190;
+}
+if(z==7){
+    
+    draw_fig1();
+    context.fillRect(0.5+190+p,p,3,100);
+    i=190;
+    
+}
+
+  
+  
+  
+      
+
+
+
+if (flag==0){
+     setTimeout(function() {
+   window.requestAnimationFrame(loop);
+   },200);
+    }
+   else{
+ window.requestAnimationFrame(loop);
+   }
+});
+
+function next()
+{
+context.canvas.addEventListener('click',function(event){
+mouseX=event.clientX - context.canvas.offsetLeft;
+mouseY=event.clientY - context.canvas.offsetTop;
+dx=mouseX-665;
+dy=mouseY-195;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+dx1=mouseX-665;
+dy1=mouseY-150;
+dist1=Math.sqrt((dx1*dx1)+(dy1*dy1));
+dx2=mouseX-665;
+dy2=mouseY-240;
+dist2=Math.sqrt((dx2*dx2)+(dy2*dy2));
+dx3=mouseX-665;
+dy3=mouseY-285;
+dist3=Math.sqrt((dx3*dx3)+(dy3*dy3));
+dx4=mouseX-665;
+dy4=mouseY-330;
+dist4=Math.sqrt((dx4*dx4)+(dy4*dy4));
+
+
+
+if(dist<=15){
+flag=1;
+if(z==1)
+{
+if(i>=190){
+i+=10;
+}
+}
+if(z==2)
+{
+if(i>=190){
+i+=10;
+}
+}
+if(z==3)
+{
+if(i>=190){
+i+=10;
+}
+}
+
+ if(z==5){
+
+z=2;
+i+=10;
+}
+if(z==6){
+z=3;
+i+=10;
+}
+if(z==7){
+z=1;
+i+=10;
+}
+
+}
+
+else if(dist1<=15){
+flag=1;
+if(z==1){
+if(i>190){
+i -=10;
+}
+}
+if(z==2){
+
+if(i>190){
+i -=10;
+}
+else if(i==190){
+
+z=1;
+i=360;
+
+}
+
+}
+if(z==3){
+if(i>190){
+i -=10;
+}
+else if(i==190){
+z=2;
+i=380;
+
+}
+
+}
+ if(z==5){
+  z=1;
+ i=360;
+i-=10;
+}
+ if(z==6){
+  z=2;
+ i=380;
+i-=10;
+}
+
+}
+else if(dist2<=15){
+flag=1;
+z=4;
+}
+else if(dist3<15){
+flag=1;
+if(z==1){
+z=5;
+}
+else if(z==2){
+z=6;
+}
+else if(z==5)
+z=6;
+
+}
+else if(dist4<15){
+flag=1;
+if(z==2)
+z=7;
+else if(z==3)
+z=5;
+else if(z==5)
+z=7;
+else if(z==6)
+z=5;
+}
+});
+}
+
+    
+</script>
+</body>
+</html>

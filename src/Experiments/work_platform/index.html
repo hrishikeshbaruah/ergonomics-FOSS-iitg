@@ -1,0 +1,310 @@
+ <html>
+    <head>
+<style>
+canvas {
+    border: 3px #000 solid;
+}
+</style>
+
+    </head>
+    <body style=" background: white;">
+        <canvas id="canvas" width="800px" height="620px" style="background: #fff;     magrin:10px;"></canvas>
+        <script type="text/javascript" language="javascript">
+          var imageObj = new Image();
+          var imageObj1 = new Image();
+          var imageObj2 = new Image();
+          var imageObj3 = new Image(); 
+          var i=0;
+          var flag=0;
+         var mouseX=0;
+         var mouseY=0;
+          var dx;
+          var dy;
+          var dist;
+          var dx1;
+          var dy1;
+         var dist1;
+        var dx2;
+        var dy2;
+        var dist2;
+        var dx3;
+        var dy3;
+        var dist3;
+        var dx4;
+        var dy4;
+        var dist4;
+        
+   
+          var canvas = document.getElementById("canvas");
+          var context = canvas.getContext("2d");
+           imageObj.src ='man1.png';
+          // imageObj5.src ='manx.png';
+           //imageObj4.src ='many.png';
+           imageObj1.src='man2.png';
+            imageObj2.src ='man3.png';
+           imageObj3.src ='man.png';
+           function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+
+        for(var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = context.measureText(testLine);
+          var testWidth = metrics.width;
+          if (testWidth > maxWidth && n > 0) {
+            context.fillText(line, x, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+          }
+          else {
+            line = testLine;
+          }
+        }
+        context.fillText(line, x, y);
+      }
+      
+          context.beginPath();
+         context.arc(775,150,15,0,Math.PI*2,false);
+         context.closePath();
+         context.fillStyle = 'red';
+         context.lineWidth = 3;
+         context.stroke();
+         context.fill();
+         context.fillStyle = "black";
+         context.font = "bold 13px Arial";
+         context.fillText("up",775-7,150+3);
+         context.beginPath();
+         context.arc(775,195,15,0,Math.PI*2,false);
+         context.closePath();
+         context.fillStyle = 'red';
+         context.stroke();
+         context.fill();
+         context.fillStyle = "black";
+         context.font = "bold 12px Arial";
+         context.fillText("down",775-13,195+3);
+         context.beginPath();
+         context.arc(775,240,15,0,Math.PI*2,false);
+         context.closePath();
+         context.fillStyle = 'red';
+         context.lineWidth = 3;
+         context.stroke();
+         context.fill();
+         context.fillStyle = "black";
+         context.font = "bold 12px Arial";
+        context.fillText("Play",775-13,240+3);
+        context.beginPath();
+        context.arc(775,285,15,0,Math.PI*2,false);
+        context.closePath();
+        context.fillStyle = 'red';
+        context.lineWidth = 3;
+        context.stroke();
+        context.fill();
+       context.fillStyle = "black";
+       context.font = "bold 11px Arial";
+       context.fillText("Pause",775-14,285+3);
+          
+           
+          // imageObj2.src ='man3.png';
+           // imageObj5.src ='manx.png';
+
+         function base_line(){
+          context.beginPath();
+          context.moveTo(180,440);
+          context.lineTo(450,440);
+          context.lineWidth=2.5;
+          context.stroke();
+          }
+          function fig1(){
+            context.drawImage(imageObj, 220, 36);
+            var maxWidth = 250;
+      var lineHeight = 18;
+      var x = (canvas.width - maxWidth) / 1.2;
+      var y = 100;
+      var text = 'Work platform height for minute attention,closer to eye';
+      context.font = "bold 14px Arial";
+      context.fillStyle = 'black';
+      wrapText(context, text, x, y, maxWidth, lineHeight);
+      var y1=134;
+      var text="Preferred height of horizontal work surface for general purposes,50th percentile of elbow height from floor may be considered which may go up to 200 mm. Beyond this the work surface should take a slant.";
+           context.font = "14px Arial";
+      context.fillStyle = 'black';
+      wrapText(context, text, x, y1, maxWidth, lineHeight);
+
+
+          }
+         function fig2(){
+      
+           context.drawImage(imageObj1, 220, 42);
+           context.fillRect(346,222,6,218);
+                      context.drawImage(imageObj3, 0, 450);
+              var maxWidth = 250;
+      var lineHeight = 18;
+      var x = (canvas.width - maxWidth) / 1.2;
+      var y = 100;
+      var text = 'Normal work platform height';
+      context.font = "bold 14px Arial";
+      context.fillStyle = 'black';
+      wrapText(context, text, x, y, maxWidth, lineHeight);
+      var y1=120;
+      var text="Preferred height of normal horizontal work surface for general purposes, 50th percentile of elbow height from floor may be considered for writing,etc. Considering palm rest requirement it may go upto 50-100nm higher.";
+           context.font = "14px Arial";
+      context.fillStyle = 'black';
+      wrapText(context, text, x, y1, maxWidth, lineHeight);
+
+          
+          }
+         function fig3(){
+          
+                      context.drawImage(imageObj2, 220, 0);
+           context.fillRect(355,248,6,192);
+           
+           context.drawImage(imageObj3, 0, 450);
+          var maxWidth = 250;
+      var lineHeight = 18;
+      var x = (canvas.width - maxWidth) / 1.2;
+      var y = 100;
+      var text = 'Work platform height, for heavy manual material handling';
+      context.font = "bold 14px Arial";
+      context.fillStyle = 'black';
+      wrapText(context, text, x, y, maxWidth, lineHeight);
+      var y1=134;
+      var text="Preferred height of horizontal work surface for general purposes,50th percentile of elbow height from floor may be considered which may go down to 200 mm.";
+           context.font = "14px Arial";
+      context.fillStyle = 'black';
+      wrapText(context, text, x, y1, maxWidth, lineHeight);
+
+           
+          }
+        
+       context.onclick=next();
+       
+         var requestAnimationFrame =  
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        function(callback) {
+          return setTimeout(callback, 400);
+        };
+
+
+
+       window.requestAnimationFrame(function loop() {
+         if(flag==0){
+         if(i<=4){
+         i=i+1;
+          if(i>4)
+           i=2;
+       }
+        
+}     
+          context.clearRect(0,0,748.5,620);
+   
+         if(i==0){
+        }
+          if(i==1){
+         
+           
+          
+           }
+         if(i==2){
+           fig1();
+            base_line();
+          context.fillRect(363,196,6,245);
+           context.font = "bold 13px Arial";
+           //context.fillText("Work platform height for minute attention",480,100);
+           context.drawImage(imageObj3, 0, 450);
+           context.font = "bold 17px Arial";
+           context.fillStyle = 'black';
+           context.fillText("Preferred work platform height,for minute attention, closer to eye=elbow height+200mm",0,590);
+           
+         
+         
+          }
+       
+        
+         if(i==3){
+          base_line();
+          fig2();
+         context.font = "bold 17px Arial";
+           context.fillStyle = 'black';
+           context.fillText("Preferred work platform height,normal activity=elbow height+(50-100)mm",0,590);
+           
+          
+           }       
+           
+  
+       
+          if(i==4){
+          base_line();
+          fig3();
+          context.font = "bold 17px Arial";
+           context.fillStyle = 'black';
+           context.fillText("Preferred work platform height,for heavy manual material handling=elbow height-200mm",0,590);
+         
+         
+          }
+      
+      
+           
+       
+       if (flag==0){
+        setTimeout(function() {
+       window.requestAnimationFrame(loop);
+       },800);
+        }
+         else{
+        window.requestAnimationFrame(loop);
+   }
+        
+         });
+       function next(){
+     context.canvas.addEventListener('click',function(event){
+     mouseX=event.clientX - context.canvas.offsetLeft;
+     mouseY=event.clientY - context.canvas.offsetTop;
+     dx=mouseX-775;
+     dy=mouseY-195;
+     dist=Math.sqrt((dx*dx)+(dy*dy));
+     dx1=mouseX-775;
+     dy1=mouseY-150;
+     dist1=Math.sqrt((dx1*dx1)+(dy1*dy1));
+     dx2=mouseX-775;
+     dy2=mouseY-240;
+     dist2=Math.sqrt((dx2*dx2)+(dy2*dy2));
+    dx3=mouseX-775;
+     dy3=mouseY-285;
+   dist3=Math.sqrt((dx3*dx3)+(dy3*dy3));
+   dx4=mouseX-775;
+  dy4=mouseY-330;
+   dist4=Math.sqrt((dx4*dx4)+(dy4*dy4));
+     if(dist<=15){
+      flag=1;
+      if(i>=0 && i<=4){
+         i++;
+        if(i>4)
+        i=4;
+      }
+      }
+      if(dist1<=15){
+      flag=1;
+      if(i>2 && i<=4){
+         i--;
+        if(i<=2)
+        i=2;
+        }
+       }
+       if(dist2<=15){
+      flag=0;
+      }
+      if(dist3<=15){
+      flag=1;
+      }
+
+});
+}
+
+        </script>
+    
+     </body>
+    </html>

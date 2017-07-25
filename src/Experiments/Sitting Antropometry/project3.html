@@ -1,0 +1,768 @@
+<html>
+<head>
+<style type="text/css">
+#myCanvas {
+    border: 0px #000 solid;
+    background:#fff;
+}
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="500"></canvas>
+<script>
+var canvas = document.getElementById('myCanvas');
+var mainCanvas = document.querySelector("#myCanvas");
+var ctx = document.getElementById('myCanvas').getContext('2d');
+var canvasWidth = mainCanvas.width;
+var canvasHeight = mainCanvas.height;
+var my_pic = new Image();
+var p1 = new Image();
+var p2 = new Image();
+var p3 = new Image();
+var p4 = new Image();
+var mouseX=0;
+var mouseY=0;
+var dx;
+var dy;
+var dist;
+var i=0;
+var flag = 0;
+ctx.onclick = next();
+my_pic.src = "p3.png";
+p1.src = "eye.png";
+p2.src = "mid_thigh.png";
+p3.src = "knee.png";
+p4.src = "popliteal.png";
+//ctx.fillRect(150,20,150,7);
+ctx.fillStyle = "black";
+ctx.font = "bold 13px Arial";
+ctx.fillText("UP",420,205);
+ctx.fillText("DOWN",420,255);
+ctx.fillText("PAUSE",520,205);
+ctx.fillText("PLAY",520,255);
+/*ctx.fillStyle = "yellow";
+ctx.fillRect(400,200,30,30);
+ctx.fillRect(400,250,30,30);*/
+ctx.beginPath();
+ctx.arc(400,200,15,0,Math.PI*2,false);
+ctx.closePath();
+ctx.fillStyle = 'yellow';
+ctx.lineWidth = 3;
+ctx.stroke();
+ctx.fill();
+ctx.beginPath();
+ctx.arc(400,250,15,0,Math.PI*2,false);
+ctx.closePath();
+ctx.fillStyle = 'yellow';
+ctx.stroke();
+ctx.fill();
+ctx.beginPath();
+ctx.arc(500,200,15,0,Math.PI*2,false);
+ctx.closePath();
+ctx.fillStyle = '#96bbda';
+ctx.lineWidth = 3;
+ctx.stroke();
+ctx.fill();
+ctx.beginPath();
+ctx.arc(500,250,15,0,Math.PI*2,false);
+ctx.closePath();
+ctx.fillStyle = '#96bbda';
+ctx.stroke();
+ctx.fill();
+/*ctx.fillStyle = "black";
+ctx.fillRect(150,20,150,7);*/
+var y=20;
+function draw() {
+ctx.drawImage(my_pic, 20, 20);
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.moveTo(20,340);
+ctx.lineTo(260,340);
+ctx.lineTo(260,10);
+ctx.moveTo(320,340);
+ctx.lineTo(260,340);
+ctx.strokeStyle = 'black';
+ctx.stroke();
+}
+//window.onload = draw;
+window.requestAnimationFrame(function loop() {
+ctx.clearRect(0, 0, 355, 500);
+draw();
+if(i==0){
+ctx.fillStyle = "black";
+ctx.fillRect(150,20,150,7);
+}
+if(y<=340)
+{
+if(flag==0)
+{
+i +=1;
+y +=2;
+}
+if(i==1){
+ctx.fillRect(150,y,150,7);
+}
+else if(i==2){
+ctx.fillRect(145,y,150,7);
+}
+else if(i==3){
+ctx.fillRect(140,y,150,7);
+}
+else if(i==4){
+ctx.fillRect(135,y,150,7);
+}
+else if(i==5){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==6){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==7){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==8){
+ctx.fillRect(124,y,150,7);
+}
+else if(i==9){
+ctx.fillRect(122,y,150,7);
+}
+else if(i==10){
+ctx.fillRect(120,y,150,7);
+}
+else if(i==11){
+ctx.fillRect(118,y,150,7);
+}
+else if(i==12){
+ctx.fillRect(116,y,150,7);
+}
+else if(i==13){
+ctx.fillRect(115,y,150,7);
+}
+else if(i==14){
+ctx.fillRect(114,y,150,7);
+}
+else if(i==15){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(115,y,150,7);
+}
+else if(i==16){
+ctx.drawImage(p1, 20, 380);
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.moveTo(240,54);
+ctx.lineTo(240,64);
+ctx.moveTo(240,70);
+ctx.lineTo(240,80);
+ctx.moveTo(240,90);
+ctx.lineTo(240,100);
+ctx.moveTo(240,110);
+ctx.lineTo(240,120);
+ctx.moveTo(240,130);
+ctx.lineTo(240,140);
+ctx.font = "bold 15px Arial";
+ctx.fillText("Eye",210,150);
+ctx.moveTo(240,150);
+ctx.lineTo(240,160);
+ctx.moveTo(240,170);
+ctx.lineTo(240,180);
+ctx.moveTo(240,190);
+ctx.lineTo(240,200);
+ctx.moveTo(240,210);
+ctx.lineTo(240,220);
+ctx.moveTo(240,230);
+ctx.lineTo(240,240);
+ctx.strokeStyle = 'red';
+ctx.stroke();
+ctx.fill();
+ctx.fillRect(106,y,150,7);
+ctx.fillRect(190,240,90,4);
+}
+else if(i==17){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(115,y,150,7);
+}
+else if(i==18){
+ctx.fillRect(118,y,150,7);
+}
+else if(i==19){
+ctx.fillRect(120,y,150,7);
+}
+else if(i==20){
+ctx.fillRect(120,y,150,7);
+}
+else if(i==21){
+ctx.fillRect(121,y,150,7);
+}
+else if(i==22){
+ctx.fillRect(121,y,150,7);
+}
+else if(i==23){
+ctx.fillRect(122,y,150,7);
+}
+else if(i==24){
+ctx.fillRect(122,y,150,7);
+}
+else if(i==25){
+ctx.fillRect(123,y,150,7);
+}
+else if(i==26){
+ctx.fillRect(123,y,150,7);
+}
+else if(i==27){
+ctx.fillRect(125,y,150,7);
+}
+else if(i==28){
+ctx.fillRect(125,y,150,7);
+}
+else if(i==29){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==30){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==31){
+ctx.fillRect(127,y,150,7);
+}
+else if(i==32){
+ctx.fillRect(127,y,150,7);
+}
+else if(i==33){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==34){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==35){
+ctx.fillRect(129,y,150,7);
+}
+else if(i==36){
+ctx.fillRect(129,y,150,7);
+}
+else if(i==37){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==38){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==39){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==40){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==41){
+ctx.fillRect(127,y,150,7);
+}
+else if(i==42){
+ctx.fillRect(127,y,150,7);
+}
+else if(i==43){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==44){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==45){
+ctx.fillRect(125,y,150,7);
+}
+else if(i==46){
+ctx.fillRect(125,y,150,7);
+}
+else if(i==47){
+ctx.fillRect(124,y,150,7);
+}
+else if(i==48){
+ctx.fillRect(124,y,150,7);
+}
+else if(i==49){
+ctx.fillRect(125,y,150,7);
+}
+else if(i==50){
+ctx.fillRect(125,y,150,7);
+}
+else if(i==51){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==52){
+ctx.fillRect(126,y,150,7);
+}
+else if(i==53){
+ctx.fillRect(127,y,150,7);
+}
+else if(i==54){
+ctx.fillRect(127,y,150,7);
+}
+else if(i==55){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==56){
+ctx.fillRect(128,y,150,7);
+}
+else if(i==57){
+ctx.fillRect(129,y,150,7);
+}
+else if(i==58){
+ctx.fillRect(129,y,150,7);
+}
+else if(i==59){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==60){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==61){
+ctx.fillRect(131,y,150,7);
+}
+else if(i==62){
+ctx.fillRect(131,y,150,7);
+}
+else if(i==63){
+ctx.fillRect(132,y,150,7);
+}
+else if(i==64){
+ctx.fillRect(132,y,150,7);
+}
+else if(i==65){
+ctx.fillRect(133,y,150,7);
+}
+else if(i==66){
+ctx.fillRect(133,y,150,7);
+}
+else if(i==67){
+ctx.fillRect(134,y,150,7);
+}
+else if(i==68){
+ctx.fillRect(134,y,150,7);
+}
+else if(i==69){
+ctx.fillRect(135,y,150,7);
+}
+else if(i==70){
+ctx.fillRect(135,y,150,7);
+}
+else if(i==71){
+ctx.fillRect(134,y,150,7);
+}
+else if(i==72){
+ctx.fillRect(133,y,150,7);
+}
+else if(i==73){
+ctx.fillRect(132,y,150,7);
+}
+else if(i==74){
+ctx.fillRect(131,y,150,7);
+}
+else if(i==75){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==76){
+ctx.fillRect(140,y,150,7);
+}
+else if(i==77){
+ctx.fillRect(135,y,150,7);
+}
+else if(i==78){
+ctx.fillRect(130,y,150,7);
+}
+else if(i==79){
+ctx.fillRect(135,y,150,7);
+}
+else if(i==80){
+ctx.fillRect(131,y,150,7);
+}
+else if(i==81){
+ctx.fillRect(132,y,150,7);
+}
+else if(i==82){
+ctx.fillRect(135,y,150,7);
+}
+else if(i==83){
+ctx.fillRect(138,y,150,7);
+}
+else if(i==84){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(140,y,150,7);
+}
+else if(i==85){
+ctx.drawImage(p2, 20, 380);
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.moveTo(240,190);
+ctx.lineTo(240,202);
+ctx.font = "bold 15px Arial";
+ctx.fillText("Mid Thigh",208,220);
+ctx.moveTo(240,210);
+ctx.lineTo(240,220);
+ctx.moveTo(240,230);
+ctx.lineTo(240,240);
+ctx.strokeStyle = 'red';
+ctx.stroke();
+ctx.fill();
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(128,200);
+ctx.lineTo(128,237);
+ctx.moveTo(128,200);
+ctx.lineTo(135,210);
+ctx.moveTo(128,200);
+ctx.lineTo(121,210);
+ctx.moveTo(128,237);
+ctx.lineTo(135,227);
+ctx.moveTo(128,237);
+ctx.lineTo(121,227);
+ctx.strokeStyle = 'black';
+ctx.stroke();
+ctx.fill();
+ctx.fillRect(130,y,150,7);
+ctx.fillRect(190,240,90,4);
+}
+else if(i==86){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(205,y,150,7);
+}
+else if(i==87){
+ctx.fillRect(200,y,150,7);
+}
+else if(i==88){
+ctx.fillRect(205,y,150,7);
+}
+else if(i==89){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(195,y,150,7);
+}
+else if(i==90){
+ctx.drawImage(p3, 20, 380);
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.moveTo(240,210);
+ctx.lineTo(240,220);
+ctx.moveTo(240,230);
+ctx.lineTo(240,240);
+ctx.moveTo(240,250);
+ctx.lineTo(240,260);
+ctx.font = "bold 15px Arial";
+ctx.fillText("Knee",210,270);
+ctx.moveTo(240,270);
+ctx.lineTo(240,280);
+ctx.moveTo(240,290);
+ctx.lineTo(240,300);
+ctx.moveTo(240,310);
+ctx.lineTo(240,320);
+ctx.moveTo(240,330);
+ctx.lineTo(240,338);
+ctx.strokeStyle = 'red';
+ctx.stroke();
+ctx.fill();
+ctx.fillRect(187,y,150,7);
+}
+else if(i==91){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(195,y,150,7);
+}
+else if(i==92){
+ctx.fillRect(194,y,150,7);
+}
+else if(i==93){
+ctx.fillRect(193,y,150,7);
+}
+else if(i==94){
+ctx.fillRect(192,y,150,7);
+}
+else if(i==95){
+ctx.fillRect(191,y,150,7);
+}
+else if(i==96){
+ctx.fillRect(185,y,150,7);
+}
+else if(i==97){
+ctx.fillRect(184,y,150,7);
+}
+else if(i==98){
+ctx.fillRect(180,y,150,7);
+}
+else if(i==99){
+ctx.fillRect(175,y,150,7);
+}
+else if(i==100){
+ctx.fillRect(172,y,150,7);
+}
+else if(i==101){
+ctx.fillRect(170,y,150,7);
+}
+else if(i==102){
+ctx.fillRect(168,y,150,7);
+}
+else if(i==103){
+ctx.fillRect(165,y,150,7);
+}
+else if(i==104){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(162,y,150,7);
+}
+else if(i==105){
+ctx.drawImage(p4, 20, 380);
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.moveTo(240,230);
+ctx.lineTo(240,242);
+ctx.moveTo(240,250);
+ctx.lineTo(240,260);
+ctx.moveTo(240,270);
+ctx.lineTo(240,280);
+ctx.font = "bold 15px Arial";
+ctx.fillText("Popliteal",196,290);
+ctx.moveTo(240,290);
+ctx.lineTo(240,300);
+ctx.moveTo(240,310);
+ctx.lineTo(240,320);
+ctx.moveTo(240,330);
+ctx.lineTo(240,338);
+ctx.strokeStyle = 'red';
+ctx.stroke();
+ctx.fill();
+ctx.fillRect(158,y,150,7);
+}
+else if(i==106){
+ctx.clearRect(350, 350, 400,400);
+ctx.fillRect(162,y,150,7);
+}
+else if(i==107){
+ctx.fillRect(162,y,150,7);
+}
+else if(i==108){
+ctx.fillRect(164,y,150,7);
+}
+else if(i==109){
+ctx.fillRect(164,y,150,7);
+}
+else if(i==110){
+ctx.fillRect(166,y,150,7);
+}
+else if(i==111){
+ctx.fillRect(166,y,150,7);
+}
+else if(i==112){
+ctx.fillRect(168,y,150,7);
+}
+else if(i==113){
+ctx.fillRect(168,y,150,7);
+}
+else if(i==114){
+ctx.fillRect(160,y,150,7);
+}
+else if(i==115){
+ctx.fillRect(165,y,150,7);
+}
+else if(i==116){
+ctx.fillRect(168,y,150,7);
+}
+else if(i==117){
+ctx.fillRect(168,y,150,7);
+}
+else if(i==118){
+ctx.fillRect(170,y,150,7);
+}
+else if(i==119){
+ctx.fillRect(170,y,150,7);
+}
+else if(i==120){
+ctx.fillRect(171,y,150,7);
+}
+else if(i==121){
+ctx.fillRect(171,y,150,7);
+}
+else if(i==122){
+ctx.fillRect(172,y,150,7);
+}
+else if(i==123){
+ctx.fillRect(172,y,150,7);
+}
+else if(i==124){
+ctx.fillRect(173,y,150,7);
+}
+else if(i==125){
+ctx.fillRect(173,y,150,7);
+}
+else if(i==126){
+ctx.fillRect(174,y,150,7);
+}
+else if(i==127){
+ctx.fillRect(174,y,150,7);
+}
+else if(i==128){
+ctx.fillRect(175,y,150,7);
+}
+else if(i==129){
+ctx.fillRect(175,y,150,7);
+}
+else if(i==130){
+ctx.fillRect(176,y,150,7);
+}
+else if(i==131){
+ctx.fillRect(176,y,150,7);
+}
+else if(i==132){
+ctx.fillRect(177,y,150,7);
+}
+else if(i==133){
+ctx.fillRect(177,y,150,7);
+}
+else if(i==134){
+ctx.fillRect(178,y,150,7);
+}
+else if(i==135){
+ctx.fillRect(178,y,150,7);
+}
+else if(i==136){
+ctx.fillRect(180,y,150,7);
+}
+else if(i==137){
+ctx.fillRect(180,y,150,7);
+}
+else if(i==138){
+ctx.fillRect(178,y,150,7);
+}
+else if(i==139){
+ctx.fillRect(176,y,150,7);
+}
+else if(i==140){
+ctx.fillRect(174,y,150,7);
+}
+else if(i==141){
+ctx.fillRect(173,y,150,7);
+}
+else if(i==142){
+ctx.fillRect(172,y,150,7);
+}
+else if(i==143){
+ctx.fillRect(171,y,150,7);
+}
+else if(i==144){
+ctx.fillRect(170,y,150,7);
+}
+else if(i==145){
+ctx.fillRect(168,y,150,7);
+}
+else if(i==146){
+ctx.fillRect(167,y,150,7);
+}
+else if(i==147){
+ctx.fillRect(166,y,150,7);
+}
+else if(i==148){
+ctx.fillRect(165,y,150,7);
+}
+else if(i==149){
+ctx.fillRect(164,y,150,7);
+}
+else if(i==150){
+ctx.fillRect(163,y,150,7);
+}
+else if(i==151){
+ctx.fillRect(162,y,150,7);
+}
+else if(i==152){
+ctx.fillRect(161,y,150,7);
+}
+else if(i==153){
+ctx.fillRect(160,y,150,7);
+}
+else if(i==154){
+ctx.fillRect(159,y,150,7);
+}
+else if(i==155){
+ctx.fillRect(158,y,150,7);
+}
+else if(i==156){
+ctx.fillRect(157,y,150,7);
+}
+else if(i==157){
+ctx.fillRect(156,y,150,7);
+}
+else if(i==158){
+ctx.fillRect(155,y,150,7);
+}
+else if(i==159){
+ctx.fillRect(154,y,150,7);
+}
+else if(i==160){
+ctx.fillRect(153,y,150,7);
+}
+else if(i==161){
+ctx.fillRect(152,y,150,7);
+}
+else if(i==162){
+ctx.fillRect(150,y,150,7);
+}
+}
+else 
+{
+i=0;
+y=20;;
+}
+if(flag==0){
+setTimeout(function() {
+window.requestAnimationFrame(loop);
+},120);
+}
+else
+{
+window.requestAnimationFrame(loop);
+}
+});
+function next()
+{
+ctx.canvas.addEventListener('click',function(event){
+var rect = canvas.getBoundingClientRect();
+	mouseX=event.clientX-rect.left ;
+	mouseY=event.clientY-rect.top ;
+	//alert("clicked");
+/*mouseX=event.clientX - ctx.canvas.offsetLeft;
+mouseY=event.clientY - ctx.canvas.offsetTop;*/
+dx=mouseX-400;
+dy=mouseY-250;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+if(dist<=15){
+flag=1;
+i +=1;
+y +=2;
+}
+else{
+dx=mouseX-400;
+dy=mouseY-200;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+if(dist<=15){
+flag=1;
+if(y>=25){
+i -=1;
+y -=2;}
+}
+}
+});
+}
+window.addEventListener('mousedown', function(event){
+var rect = canvas.getBoundingClientRect();
+	mouseX=event.clientX-rect.left ;
+	mouseY=event.clientY-rect.top ;
+	//alert("clicked");
+/*mouseX=event.clientX - ctx.canvas.offsetLeft;
+mouseY=event.clientY - ctx.canvas.offsetTop;*/
+dx=mouseX-500;
+dy=mouseY-250;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+if(dist<=15){
+flag=0;
+}
+else{
+dx=mouseX-500;
+dy=mouseY-200;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+if(dist<=15){
+flag=1;
+}
+}
+});
+</script>
+ <iframe src="project4.html" height="500" width="700" scrolling="no" style="float:right; border:0;";></iframe>
+</body>
+</html>

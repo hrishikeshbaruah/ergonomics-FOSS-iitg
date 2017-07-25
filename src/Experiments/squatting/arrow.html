@@ -1,0 +1,123 @@
+<html>
+ 
+<head>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+<title>Move Arrow</title>
+
+    <script type="text/javascript">
+            
+//this function is called on up arrow detected
+            
+function upArrowPressed() {
+           
+ var arr = document.getElementById("image1");
+           
+ var vw = document.getElementById("image2");
+            
+if(parseInt(arr.style.top) >0){
+                
+arr.style.top = parseInt(arr.style.top) - 1 + 'px'; 
+//this much movement on button click
+                
+vw.style.top = parseInt(vw.style.top) + 2 + 'px';
+                
+            
+}
+           
+ }
+
+            
+function downArrowPressed() {
+            
+var arr = document.getElementById("image1");
+           
+ var vw = document.getElementById("image2");
+            
+if(parseInt(arr.style.top) <570){
+                
+arr.style.top = parseInt(arr.style.top) + 1 + 'px'; 
+//this much movement on button click
+                
+vw.style.top = parseInt(vw.style.top) - 2 + 'px';
+            
+}
+            
+}
+
+           
+ function moveSelection(evt) { 
+// arrow key press handler
+                
+switch (evt.keyCode) {
+                    
+case 38:               
+// up arrow key kode
+                    
+upArrowPressed();
+                    
+break;
+                    
+case 40:               
+// down arrow key kode
+                    
+downArrowPressed();
+                    
+break;
+                    
+}
+               
+ };
+
+       
+ function docReady() 
+//this function is called when page has completely loaded and then attaches handler to the page
+        
+{
+  -
+window.addEventListener('click' , function(event) {       
+          
+window.addEventListener('keydown', moveSelection);
+  
+});      
+}
+
+  
+</script>
+  
+<style>
+  
+html, 
+body{
+   
+ background: white;
+   
+ overflow: hidden;
+    
+height: 500px;
+  }
+  
+</style>
+ 
+ </head>
+
+  
+<body onload="docReady()" onkeydown="" onkeyup="">
+    
+<img id="image2" src="height.png" style="position:absolute; left:35; top:-900" height="172%" width="3%" />
+    
+<img src="view.png" style="position: absolute;left:20;top:-450;width:75;height:1500"/>
+   
+ <img src="scale.png" style="position:absolute; left:118;top:52" />
+   
+ <img src="squatting.png" style="position:absolute; left:180; bottom:-2" />
+    
+<img id="image1" src="arrow.png" style="position:absolute;left:110; top:570;" width:"10%" height="10%"/>
+  
+    <div style="position: absolute; z-index: 1; left: 0px; bottom: 20px; width:0px; height:70px; background-color: white;">
+
+</div>
+</body>
+
+</html>

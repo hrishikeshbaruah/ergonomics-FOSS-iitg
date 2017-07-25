@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+5th project..
+</title>
+
+<link href="style1.css" rel="stylesheet" media="all">
+<script src="test1.js"></script>
+<!--<script src="test2.js"></script>-->
+<style>
+
+#myCanvas {
+    //border: 1px #000 solid;
+	background-color:#A0C6FF ;
+    
+}
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+#h
+{
+  color:rgb(244, 101, 66);
+  font-size:30px;
+}
+
+#v
+{
+	color:green;
+}
+#si
+{
+	//color:yellow;
+}
+#edit
+{
+	margin-left:2%;
+}
+</style>
+
+</head>
+<body >
+<h1 align="center" style="color:blue;"><u><b>Hand Dimension</b><u></h1>
+<h4 id="edit" style="color:rgb(114, 135, 97);"><u>CLICK THE IMAGE BELOW TO PERFORM THE EXPERIMENT</u></h4>
+<canvas id="myCanvas" width="1250" height="850"></canvas>
+<script>
+
+var canvas = document.getElementById("myCanvas");
+
+	//very carefull with these two lines....
+	
+	canvas.width  = canvas.scrollWidth;
+    canvas.height = canvas.scrollHeight;
+	
+	var ctx = canvas.getContext('2d');
+	var i=0;
+	var img;
+	//to show the initial vernier calliper reading
+	var c=1;
+	var w=c.toString();
+	var mouseX=0;
+	var mouseY;
+	//ctx.fill();
+	
+	ctx.fillStyle='red';
+	ctx.font="bold 25px arial";
+	ctx.fillText("Record the measurements and compare  ",10,50);
+	ctx.fillText("Step 1: Drag the images and place it on the calliper  ",25,90);
+	ctx.fillText("Step 2: Press ' >> ' , ' << ' on the keyboard to get the reading  ",25,130);
+	ctx.fillText("Step 3: Check the answer",25,170);
+	
+	ctx.font="bold 15px arial";
+	ctx.fillText("Drag the image on calliper for reading  ",830,400);
+	ctx.fillText("Drag the image on calliper for reading  ",830,750);
+	ctx.fillText("Press ' >> ' , ' << ' on the keyboard to get the reading    ",50,670);
+	ctx.fillStyle="blue";
+	ctx.font="bold 13px arial";
+	ctx.fillText("Quiz :To which percentile does the hand belong ?    ",70,700);
+	ctx.fillText("a. 25th percentile",70,740);
+	ctx.fillText("b. 50th percentile",70,780);
+	ctx.fillText("c. 75th percentile",70,820);
+	ctx.fillStyle="black";
+	ctx.font="bold 25px arial";
+	ctx.fillText("1cm = 10mm",450,700);
+	//data print..
+	ctx.fillText(w+"mm",450,800);
+	
+	
+	ctx.fillStyle='blue';
+	ctx.font="bold 25px arial";
+	ctx.fillText("'data'",490,50);
+function moveSelection(evt) { 
+// arrow key press handler
+                
+switch (evt.keyCode) {
+                    
+case 39:               
+// up arrow key kode
+if(i!=450)
+{
+i=i+2;
+c=c+1;
+w=c.toString();
+}
+//alert(i);    
+scale();            
+//upArrowPressed();
+                    
+break;
+                    
+case 37:               
+// down arrow key kode
+if(i!=0)
+{
+i=i-2;
+c=c-1;
+w=c.toString();
+}
+//alert(i);
+  scale();                  
+//downArrowPressed();
+                    
+break;
+                    
+}
+               
+ };
+	
+	function scale()
+	{
+	img = document.getElementById("five");
+	img.style.left = ((0-467)+i) + "px";
+	img.src="2c.png";
+	ctx.clearRect(450,780,100,50);
+	ctx.fillStyle="black";
+	ctx.fillText(w+"mm",450,800);
+	
+	}
+
+//changes made by me to click only when we click in canvas..not the whole window...	
+
+ctx.canvas.addEventListener('click' , function(event) { 
+
+	// there should be some changes in this part ..........................>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	//ask dada or priti ..................>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+	var rect = canvas.getBoundingClientRect();
+	mouseX=event.clientX-rect.left ;
+	mouseY=event.clientY-rect.top ;
+	//alert("clicked");
+	//alert(mouseX+" || "+mouseY);
+	if(mouseX>=68 && mouseX<=178)
+	{
+		//alert(mouseX+" || "+mouseY);
+		if(mouseY>=728 && mouseY<=744)
+		{
+		//alert(mouseX+" || "+mouseY);
+		//alert("1");
+		i=390;
+		c=196;
+		w=c.toString();
+		
+		//alert("wrong");
+		document.getElementById("si").innerHTML="<span style='color:red;'><b> WRONG</b><span>";
+		scale(); 
+		
+		
+		/*ctx.fillStyle="red";
+		 ctx.fillText("wrong",190,740);
+		 ctx.clearRect(190,780,80,50);
+		 ctx.clearRect(190,820,80,50);
+		 */
+		}
+		else if(mouseY>=767 && mouseY<=783)
+		{
+		//alert(mouseX+" || "+mouseY);
+		//alert("2");
+		i=392;
+		c=197;
+		w=c.toString();
+		
+		//alert("wrong");
+		document.getElementById("si").innerHTML="<span style='color:red;'><b> WRONG</b><span>";
+		scale();
+		
+		/*ctx.fillStyle="red";
+		 ctx.fillText("wrong",190,780);
+		 ctx.clearRect(190,740,100,50);
+		 ctx.clearRect(190,820,100,50);
+		*/
+		}
+		else if(mouseY>=808 && mouseY<=824)
+		{
+		//alert(mouseX+" || "+mouseY);
+		//alert("3");
+		i=394;
+		c=198;
+		w=c.toString();
+		
+		//alert("correct");
+		document.getElementById("si").innerHTML="<span style='color:blue;'><b> CORRECT</b><span>";
+		scale();
+		
+		/*ctx.fillStyle="green";
+		 ctx.fillText("correct",190,820);
+		 ctx.clearRect(190,740,100,50);
+		 ctx.clearRect(190,780,100,50);
+		*/
+		}
+		
+	}
+	
+	window.addEventListener('keydown', moveSelection);
+  
+}); 
+
+
+	
+
+</script>
+
+
+<div style="background-color:transparent; position: absolute; z-index: 1; left: 550px; top: 450px; width:330px; height:200px;">
+<img src="1.png" id="one" width="320" height="300">
+<img src="3.png" id="two" width="430" height="300">
+<img src="2b.png" id="three" width="30" height="230" >
+<img src="2a.png" id="four" width="500" height="24" >
+<img src="2c.png" id="five" width="146" height="230" >
+</div>
+<p id="v"><b>ANS TO QUIZ :</b><span id="si">&nbsp&nbsp&nbsp&nbsp<u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </u></span></p>
+<a id="h" href="final.html">CLICK HERE TO GET DATA</a>
+</body>
+</html>

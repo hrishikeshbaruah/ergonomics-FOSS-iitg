@@ -1,0 +1,88 @@
+img:first-child
+{
+	position:relative;
+	top:-300px;
+	left:200px;
+}
+
+img:nth-child(2)
+{
+	position:relative;
+	top:-250px;
+	left:200px;
+}
+
+img:nth-child(3)
+{
+	position:relative;
+	top:-652px;
+	left:-497px;
+}
+
+img:nth-child(4)
+{
+	position:relative;
+	top:-785px;
+	left:-467px;
+}
+img:nth-child(5)
+{
+	position:relative;
+	top:-910px;
+	left:-467px;
+}
+
+body
+{
+	position: relative;
+	/* for animating the body should be made --> position: relative. */
+}
+
+/*
+img:nth-child(5)
+{
+	position:absolute;
+	top:140px;
+	left:190px;
+}
+
+img:nth-child(6)
+{
+	position:absolute;
+	top:190px;
+	left:135px;
+}
+
+img:nth-child(7)
+{
+	position:absolute;
+	top:230px;
+	left:80px;
+}
+img:nth-child(8)
+{
+	position:absolute;
+	top:270px;
+	left:30px;
+}
+
+img:nth-child(9)
+{
+	position:absolute;
+	top:310px;
+	left:-30px;
+}
+
+img:nth-child(10)
+{
+	position:absolute;
+	top:320px;
+	left:185px;
+}
+
+
+*/
+.draggable:hover
+{
+	cursor:move;
+}

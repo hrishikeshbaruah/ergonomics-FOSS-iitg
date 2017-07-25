@@ -1,0 +1,81 @@
+<! DOCTYPE html>
+<html>
+<head>
+<style>
+
+#but {
+    background-color: green;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	
+	
+    //padding: 15px 32px;
+	font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style>
+<script>
+function change1()
+{
+clear();
+
+//This thing will replace ##
+	document.getElementById('1').innerHTML="No";
+}
+function change2()
+{
+	clear();
+	document.getElementById('2').innerHTML="No";
+}
+function change3()
+{
+clear();
+	document.getElementById('3').innerHTML="No";
+}
+function change4()
+{
+clear();
+	document.getElementById('4').innerHTML="Yes";
+}
+function clear()
+{
+  // ## //1st button through document.getElementById --->>>
+document.getElementById('1').innerHTML='<input id="but" type="button" value="Enter"  onclick="change1()">';
+document.getElementById('2').innerHTML='<input id="but" type="button" value="Enter"  onclick="change2()">';
+document.getElementById('3').innerHTML='<input id="but" type="button" value="Enter"  onclick="change3()">';
+document.getElementById('4').innerHTML='<input id="but" type="button" value="Enter"  onclick="change4()">';
+
+
+
+}
+</script>
+<style>
+
+</style>
+
+</head>
+<body>
+<h2 align="center"><span style="color:red">Step 2: </span>For comfortable journey where<br/>upper body and shank is > 130, back<br/>support is required upto</h2>
+<br/>
+<br/>
+<div id="1st"><span style="font-size:20px; font-family:verdana;"><b>(a) 75th % ile upper lumber height &nbsp&nbsp&nbsp&nbsp</b></span><span id="1" style="color:red; font-size:20px; "><input id="but" type="button" value="Enter"  onclick="change1()"></span></div>
+<br/>
+<br/>
+<div id="2nd"><span style="font-size:20px; font-family:verdana;"><b>(b) 50th % ile mid shoulder height &nbsp&nbsp&nbsp&nbsp</b></span><span id="2" style="color:red; font-size:20px; "><input id="but" type="button" value="Enter" onclick="change2()"></span></div>
+<br/>
+<br/>
+<div id="3rd"><span style="font-size:20px; font-family:verdana;"><b>(c) 75th % ile head height &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></span><span id="3" style="color:red; font-size:20px;"><input id="but" type="button" value="Enter"  onclick="change3()"></span></div>
+<br/>
+<br/>
+<div id="4th"><span style="font-size:20px; font-family:verdana;"><b>(d) Needs full head support &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></span><span id="4" style="color:green; font-size:20px;"><input id="but" type="button" value="Enter"  onclick="change4()"></span></div></br>
+<script>
+
+</script>
+
+</body>
+</html>

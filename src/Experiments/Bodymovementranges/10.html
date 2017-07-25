@@ -1,0 +1,749 @@
+<html>
+<head>
+<title>5th Project</title>
+<link href="style1.css" rel="stylesheet" media="all">
+<script src="test1.js"></script>
+<style type="text/css">
+#myCanvas {
+    border: 1px #000 solid;
+    background:#fff;
+    background:url("a5.png");
+    background-repeat: no-repeat;
+}
+.2{
+        position:relative;
+	top:120px;
+	left:-45px;
+}
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="700"></canvas>
+<script>
+var canvas = document.getElementById('myCanvas');
+var mainCanvas = document.querySelector("#myCanvas");
+var ctx = document.getElementById('myCanvas').getContext('2d');
+var canvasWidth = mainCanvas.width;
+var canvasHeight = mainCanvas.height;
+var i=0;
+    var mouseX=0;
+    var mouseY=0;
+    var dx;
+    var dy;
+    var dist;
+    var dx1;
+    var dy1;
+    var dist1;
+ctx.fillStyle = "black";
+ctx.font = "bold 15px Arial";
+ctx.fillText("Left",200,605);
+ctx.fillText("Right",322,605);
+ ctx.beginPath();
+   ctx.arc(250,600,15,0,Math.PI*2,false);
+   ctx.closePath();
+   ctx.fillStyle = '#EDBE61';
+   ctx.lineWidth = 3;
+   ctx.stroke();
+   ctx.fill();
+   ctx.fillStyle = "black";
+   ctx.font = "bold 15px Arial";
+   ctx.fillText("<<",250-8,600+3);
+   ctx.beginPath();
+   ctx.arc(300,600,15,0,Math.PI*2,false);
+   ctx.closePath();
+   ctx.fillStyle = '#EDBE61';
+   ctx.lineWidth = 3;
+   ctx.stroke();
+   ctx.fill();
+   ctx.fillStyle = "black";
+   ctx.font = "bold 15px Arial";
+   ctx.fillText(">>",300-8,600+3);
+ctx.onClick = next();
+var img;
+function scale()
+{
+if(i==0)
+{
+img = document.getElementById("0");
+img.style.transform = "rotate(0deg)";
+img.style.top = "-311px";
+img.style.left = "-401px";
+img.src="a11.png";
+}
+else if(i==1)
+{
+img.style.transform = "rotate(-2deg)";
+img.style.top = "-313px";
+img.src="a11.png";
+}
+else if(i==2)
+{
+img.style.transform = "rotate(-4deg)";
+img.style.top = "-315px";
+img.src="a11.png";
+}
+else if(i==3)
+{
+img.style.transform = "rotate(-6deg)";
+img.style.top = "-317px";
+img.src="a11.png";
+}
+else if(i==4)
+{
+img.style.transform = "rotate(-8deg)";
+img.style.top = "-319px";
+img.style.left = "-402px";
+img.src="a11.png";
+}
+else if(i==5)
+{
+img.style.transform = "rotate(-10deg)";
+img.style.top = "-322px";
+img.style.left = "-402px";
+img.src="a11.png";
+}
+else if(i==6)
+{
+img.style.transform = "rotate(-12deg)";
+img.style.top = "-324px";
+img.style.left = "-403px";
+img.src="a11.png";
+}
+else if(i==7)
+{
+img.style.transform = "rotate(-14deg)";
+img.style.top = "-326px";
+img.style.left = "-404px";
+img.src="a11.png";
+}
+else if(i==8)
+{
+img.style.transform = "rotate(-16deg)";
+img.style.top = "-328px";
+img.style.left = "-404px";
+img.src="a11.png";
+}
+else if(i==9)
+{
+img.style.transform = "rotate(-18deg)";
+img.style.top = "-330px";
+img.style.left = "-405px";
+img.src="a11.png";
+}
+else if(i==10)
+{
+img.style.transform = "rotate(-20deg)";
+img.style.top = "-332px";
+img.style.left = "-405.5px";
+img.src="a11.png";
+}
+else if(i==11)
+{
+img.style.transform = "rotate(-22deg)";
+img.style.top = "-334px";
+img.style.left = "-406.5px";
+img.src="a11.png";
+}
+else if(i==12)
+{
+img.style.transform = "rotate(-24deg)";
+img.style.top = "-336px";
+img.style.left = "-407.5px";
+img.src="a11.png";
+}
+else if(i==13)
+{
+img.style.transform = "rotate(-26deg)";
+img.style.top = "-338px";
+img.style.left = "-408px";
+img.src="a11.png";
+}
+else if(i==14)
+{
+img.style.transform = "rotate(-28deg)";
+img.style.top = "-340px";
+img.style.left = "-409px";
+img.src="a11.png";
+}
+else if(i==15)
+{
+img.style.transform = "rotate(-30deg)";
+img.style.top = "-342px";
+img.style.left = "-410px";
+img.src="a11.png";
+}
+else if(i==16)
+{
+img.style.transform = "rotate(-32deg)";
+img.style.top = "-344px";
+img.style.left = "-412px";
+img.src="a11.png";
+}
+else if(i==17)
+{
+img.style.transform = "rotate(-34deg)";
+img.style.top = "-346px";
+img.style.left = "-413px";
+img.src="a11.png";
+}
+else if(i==18)
+{
+img.style.transform = "rotate(-36deg)";
+img.style.top = "-348px";
+img.style.left = "-414px";
+img.src="a11.png";
+}
+else if(i==19)
+{
+img.style.transform = "rotate(-38deg)";
+img.style.top = "-350px";
+img.style.left = "-416px";
+img.src="a11.png";
+}
+else if(i==20)
+{
+img.style.transform = "rotate(-40deg)";
+img.style.top = "-352px";
+img.style.left = "-417px";
+img.src="a11.png";
+}
+else if(i==21)
+{
+img.style.transform = "rotate(-42deg)";
+img.style.top = "-353px";
+img.style.left = "-418.5px";
+img.src="a11.png";
+}
+else if(i==22)
+{
+img.style.transform = "rotate(-44deg)";
+img.style.top = "-355.5px";
+img.style.left = "-420px";
+img.src="a11.png";
+}
+else if(i==23)
+{
+img.style.transform = "rotate(-46deg)";
+img.style.top = "-356px";
+img.style.left = "-422px";
+img.src="a11.png";
+}
+else if(i==24)
+{
+img.style.transform = "rotate(-48deg)";
+img.style.top = "-357.5px";
+img.style.left = "-424px";
+img.src="a11.png";
+}
+else if(i==25)
+{
+img.style.transform = "rotate(-50deg)";
+img.style.top = "-358px";
+img.style.left = "-426.5px";
+img.src="a11.png";
+}
+else if(i==26)
+{
+img.style.transform = "rotate(-52deg)";
+img.style.top = "-360px";
+img.style.left = "-428px";
+img.src="a11.png";
+}
+else if(i==27)
+{
+img.style.transform = "rotate(-54deg)";
+img.style.top = "-361px";
+img.style.left = "-430px";
+img.src="a11.png";
+}
+else if(i==28)
+{
+img.style.transform = "rotate(-56deg)";
+img.style.top = "-362px";
+img.style.left = "-432px";
+img.src="a11.png";
+}
+else if(i==29)
+{
+img.style.transform = "rotate(-58deg)";
+img.style.top = "-363px";
+img.style.left = "-434px";
+img.src="a11.png";
+}
+else if(i==30)
+{
+img.style.transform = "rotate(-60deg)";
+img.style.top = "-364px";
+img.style.left = "-436px";
+img.src="a11.png";
+}
+else if(i==31)
+{
+img.style.transform = "rotate(-62deg)";
+img.style.top = "-365px";
+img.style.left = "-438px";
+img.src="a11.png";
+}
+else if(i==32)
+{
+img.style.transform = "rotate(-64deg)";
+img.style.top = "-366px";
+img.style.left = "-440px";
+img.src="a11.png";
+}
+else if(i==33)
+{
+img.style.transform = "rotate(-66deg)";
+img.style.top = "-367px";
+img.style.left = "-442px";
+img.src="a11.png";
+}
+else if(i==34)
+{
+img.style.transform = "rotate(-68deg)";
+img.style.top = "-368px";
+img.style.left = "-443px";
+img.src="a11.png";
+}
+else if(i==35)
+{
+img.style.transform = "rotate(-70deg)";
+img.style.top = "-369.5px";
+img.style.left = "-445px";
+img.src="a11.png";
+}
+else if(i==36)
+{
+img.style.transform = "rotate(-72deg)";
+img.style.top = "-370px";
+img.style.left = "-447px";
+img.src="a11.png";
+}
+else if(i==37)
+{
+img.style.transform = "rotate(-74deg)";
+img.style.top = "-371px";
+img.style.left = "-449px";
+img.src="a11.png";
+}
+else if(i==38)
+{
+img.style.transform = "rotate(-76deg)";
+img.style.top = "-371px";
+img.style.left = "-450px";
+img.src="a11.png";
+}
+else if(i==39)
+{
+img.style.transform = "rotate(-78deg)";
+img.style.top = "-371px";
+img.style.left = "-452px";
+img.src="a11.png";
+}
+else if(i==40)
+{
+img.style.transform = "rotate(-80deg)";
+img.style.top = "-371px";
+img.style.left = "-455px";
+img.src="a11.png";
+}
+else if(i==41)
+{
+img.style.transform = "rotate(-82deg)";
+img.style.top = "-371px";
+img.style.left = "-457px";
+img.src="a11.png";
+}
+else if(i==42)
+{
+img.style.transform = "rotate(-84deg)";
+img.style.top = "-372px";
+img.style.left = "-460px";
+img.src="a11.png";
+}
+else if(i==43)
+{
+img.style.transform = "rotate(-86deg)";
+img.style.top = "-372px";
+img.style.left = "-463px";
+img.src="a11.png";
+}
+else if(i==44)
+{
+img.style.transform = "rotate(-88deg)";
+img.style.top = "-372px";
+img.style.left = "-465px";
+img.src="a11.png";
+}
+else if(i==45)
+{
+img.style.transform = "rotate(-90deg)";
+img.style.top = "-372px";
+img.style.left = "-467px";
+img.src="a11.png";
+}
+else if(i==46)
+{
+img.style.transform = "rotate(-92deg)";
+img.style.top = "-372px";
+img.style.left = "-469px";
+img.src="a11.png";
+}
+else if(i==47)
+{
+img.style.transform = "rotate(-94deg)";
+img.style.top = "-372px";
+img.style.left = "-471px";
+img.src="a11.png";
+}
+else if(i==48)
+{
+img.style.transform = "rotate(-96deg)";
+img.style.top = "-371px";
+img.style.left = "-473px";
+img.src="a11.png";
+}
+else if(i==49)
+{
+img.style.transform = "rotate(-98deg)";
+img.style.top = "-371px";
+img.style.left = "-475px";
+img.src="a11.png";
+}
+else if(i==50)
+{
+img.style.transform = "rotate(-100deg)";
+img.style.top = "-370px";
+img.style.left = "-477px";
+img.src="a11.png";
+}
+else if(i==51)
+{
+img.style.transform = "rotate(-102deg)";
+img.style.top = "-370px";
+img.style.left = "-479px";
+img.src="a11.png";
+}
+else if(i==52)
+{
+img.style.transform = "rotate(-104deg)";
+img.style.top = "-370px";
+img.style.left = "-481px";
+img.src="a11.png";
+}
+else if(i==53)
+{
+img.style.transform = "rotate(-106deg)";
+img.style.top = "-369px";
+img.style.left = "-484px";
+img.src="a11.png";
+}
+else if(i==54)
+{
+img.style.transform = "rotate(-108deg)";
+img.style.top = "-368px";
+img.style.left = "-486px";
+img.src="a11.png";
+}
+else if(i==55)
+{
+img.style.transform = "rotate(-110deg)";
+img.style.top = "-367px";
+img.style.left = "-488px";
+img.src="a11.png";
+}
+else if(i==56)
+{
+img.style.transform = "rotate(-112deg)";
+img.style.top = "-366px";
+img.style.left = "-490px";
+img.src="a11.png";
+}
+else if(i==57)
+{
+img.style.transform = "rotate(-114deg)";
+img.style.top = "-365px";
+img.style.left = "-492px";
+img.src="a11.png";
+}
+else if(i==58)
+{
+img.style.transform = "rotate(-116deg)";
+img.style.top = "-364px";
+img.style.left = "-494px";
+img.src="a11.png";
+}
+else if(i==59)
+{
+img.style.transform = "rotate(-118deg)";
+img.style.top = "-363px";
+img.style.left = "-496px";
+img.src="a11.png";
+}
+else if(i==60)
+{
+img.style.transform = "rotate(-120deg)";
+img.style.top = "-362px";
+img.style.left = "-498px";
+img.src="a11.png";
+}
+else if(i==61)
+{
+img.style.transform = "rotate(-122deg)";
+img.style.top = "-361px";
+img.style.left = "-500px";
+img.src="a11.png";
+}
+else if(i==62)
+{
+img.style.transform = "rotate(-124deg)";
+img.style.top = "-359px";
+img.style.left = "-502px";
+img.src="a11.png";
+}
+else if(i==63)
+{
+img.style.transform = "rotate(-126deg)";
+img.style.top = "-358px";
+img.style.left = "-503px";
+img.src="a11.png";
+}
+else if(i==64)
+{
+img.style.transform = "rotate(-128deg)";
+img.style.top = "-357px";
+img.style.left = "-504px";
+img.src="a11.png";
+}
+else if(i==65)
+{
+img.style.transform = "rotate(-130deg)";
+img.style.top = "-355px";
+img.style.left = "-506px";
+img.src="a11.png";
+}
+else if(i==66)
+{
+img.style.transform = "rotate(-132deg)";
+img.style.top = "-353px";
+img.style.left = "-508px";
+img.src="a11.png";
+}
+else if(i==67)
+{
+img.style.transform = "rotate(-134deg)";
+img.style.top = "-351px";
+img.style.left = "-510px";
+img.src="a11.png";
+}
+else if(i==68)
+{
+img.style.transform = "rotate(-136deg)";
+img.style.top = "-350px";
+img.style.left = "-511px";
+img.src="a11.png";
+}
+else if(i==69)
+{
+img.style.transform = "rotate(-138deg)";
+img.style.top = "-348px";
+img.style.left = "-513px";
+img.src="a11.png";
+}
+else if(i==70)
+{
+img.style.transform = "rotate(-140deg)";
+img.style.top = "-346px";
+img.style.left = "-514px";
+img.src="a11.png";
+}
+else if(i==71)
+{
+img.style.transform = "rotate(-142deg)";
+img.style.top = "-345px";
+img.style.left = "-515px";
+img.src="a11.png";
+}
+else if(i==72)
+{
+img.style.transform = "rotate(-144deg)";
+img.style.top = "-343px";
+img.style.left = "-516px";
+img.src="a11.png";
+}
+else if(i==73)
+{
+img.style.transform = "rotate(-146deg)";
+img.style.top = "-341px";
+img.style.left = "-517px";
+img.src="a11.png";
+}
+else if(i==74)
+{
+img.style.transform = "rotate(-148deg)";
+img.style.top = "-339px";
+img.style.left = "-518px";
+img.src="a11.png";
+}
+else if(i==75)
+{
+img.style.transform = "rotate(-150deg)";
+img.style.top = "-337px";
+img.style.left = "-519px";
+img.src="a11.png";
+}
+else if(i==76)
+{
+img.style.transform = "rotate(-152deg)";
+img.style.top = "-335px";
+img.style.left = "-520px";
+img.src="a11.png";
+}
+else if(i==77)
+{
+img.style.transform = "rotate(-154deg)";
+img.style.top = "-333.5px";
+img.style.left = "-521px";
+img.src="a11.png";
+}
+else if(i==78)
+{
+img.style.transform = "rotate(-156deg)";
+img.style.top = "-331.5px";
+img.style.left = "-522px";
+img.src="a11.png";
+}
+else if(i==79)
+{
+img.style.transform = "rotate(-158deg)";
+img.style.top = "-329px";
+img.style.left = "-523px";
+img.src="a11.png";
+}
+else if(i==80)
+{
+img.style.transform = "rotate(-160deg)";
+img.style.top = "-327px";
+img.style.left = "-524px";
+img.src="a11.png";
+}
+else if(i==81)
+{
+img.style.transform = "rotate(-162deg)";
+img.style.top = "-325px";
+img.style.left = "-525px";
+img.src="a11.png";
+}
+else if(i==82)
+{
+img.style.transform = "rotate(-164deg)";
+img.style.top = "-323px";
+img.style.left = "-526px";
+img.src="a11.png";
+}
+else if(i==83)
+{
+img.style.transform = "rotate(-166deg)";
+img.style.top = "-320px";
+img.style.left = "-527px";
+img.src="a11.png";
+}
+else if(i==84)
+{
+img.style.transform = "rotate(-168deg)";
+img.style.top = "-318px";
+img.style.left = "-526px";
+img.src="a11.png";
+}
+else if(i==85)
+{
+img.style.transform = "rotate(-170deg)";
+img.style.top = "-316px";
+img.style.left = "-526px";
+img.src="a11.png";
+}
+else if(i==86)
+{
+img.style.transform = "rotate(-172deg)";
+img.style.top = "-315px";
+img.style.left = "-526px";
+img.src="a11.png";
+}
+else if(i==87)
+{
+img.style.transform = "rotate(-174deg)";
+img.style.top = "-312px";
+img.style.left = "-526px";
+img.src="a11.png";
+}
+else if(i==88)
+{
+img.style.transform = "rotate(-176deg)";
+img.style.top = "-310px";
+img.style.left = "-527px";
+img.src="a11.png";
+}
+else if(i==89)
+{
+img.style.transform = "rotate(-178deg)";
+img.style.top = "-307px";
+img.style.left = "-527px";
+img.src="a11.png";
+}
+else if(i==90)
+{
+img.style.transform = "rotate(-180deg)";
+img.style.top = "-305px";
+img.style.left = "-527px";
+img.src="a11.png";
+}
+}
+window.requestAnimationFrame(function loop() {
+ctx.clearRect(0, 0, 900, 500);
+   ctx.font = "bold 15px Arial";
+   ctx.fillText("Drag the Hand and place the joints at the center of the Goniometer and measure the angle, click the arrow buttons",40,20);
+   ctx.fillText("below to move the scale of the goniometer",200,40);
+   ctx.fillStyle = "red";
+scale();
+window.requestAnimationFrame(loop);
+});
+function next()
+{
+ctx.canvas.addEventListener('click',function(event){
+var rect = canvas.getBoundingClientRect();
+	mouseX=event.clientX-rect.left ;
+	mouseY=event.clientY-rect.top ;
+	//alert("clicked");
+/*mouseX=event.clientX - ctx.canvas.offsetLeft;
+mouseY=event.clientY - ctx.canvas.offsetTop;*/
+dx=mouseX-250;
+dy=mouseY-600;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+dx1=mouseX-300;
+dy1=mouseY-600;
+dist1=Math.sqrt((dx1*dx1)+(dy1*dy1));
+if(dist<=15)
+{
+if(i!=90)
+{
+i +=1;
+}
+}
+else if(dist1<=15)
+{
+if(i!=0)
+{
+i -=1;
+}
+}
+});
+}
+</script>
+</body>
+<div style="position: absolute; z-index: 1; left: 550px; top: 450px; width:330px; height:200px; background-color: transparent;">
+<img src="a4.png" id="one" width="370" height="220">
+<img id="0" src="a11.png" /> 
+<!-- <img id="1" src="a6.png" /> 
+<img id="2" src="a33.png" /> -->
+</div>
+</html>

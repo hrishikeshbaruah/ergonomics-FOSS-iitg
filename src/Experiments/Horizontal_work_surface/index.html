@@ -1,0 +1,199 @@
+<! DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3rd project..</title>
+
+<link href="style1.css" rel="stylesheet" media="all">
+
+<script src="test1.js"></script>
+
+<style>
+
+#div2 {
+    width: 600px;
+    height: 500px;
+    padding: 50px;
+    border: 1px solid black;
+	
+}
+
+#col
+{
+	float:right;
+	right:20px;
+	position:static;
+	//comment in css  . . .  >>
+	//border: 1px solid yellow;
+	width:300px;
+	height:520px;
+}
+
+#ref{
+  float:left;
+  margin-top:10px;
+  margin-left:120px;
+}
+#myCanvas
+{
+	border:1px solid black;
+}
+
+
+</style>
+
+</head>
+
+<!-- it separates the head part and body part  -->
+
+<body>
+<h3>Start of experiment</h3>
+<hr>
+<hr>
+
+<!--Finding problem-->
+
+
+<canvas id="myCanvas" width="400" height="300" ></canvas>
+<!-- priti's code starts here -->
+<script>
+	var canvas = document.getElementById("myCanvas");
+
+	//very carefull with these two lines....
+	
+	canvas.width  = canvas.scrollWidth;
+    canvas.height = canvas.scrollHeight;
+    var radi=80;
+	var x=200;
+	var y=200;
+	
+	//for getting the co-ordinates:-->
+	var mouseX=0;
+	var mouseY=0;
+	
+	var dx=0;
+	var dy=0;
+	
+	var dist=0;
+	var ctx = canvas.getContext('2d');
+	
+	ctx.fillStyle='green';
+	
+	//for circle begin path-->
+	ctx.beginPath();
+	
+	ctx.arc(x, y,radi,0,2 * Math.PI,false);
+	ctx.fill();
+	
+	ctx.fillStyle='blue';
+	ctx.font="bold 30px sans-serif";
+	ctx.fillText("Check answer",110,70);
+	
+	var my_pic = new Image();
+	my_pic.src = "final.png";
+	
+	ctx.canvas.addEventListener('click',function(event){
+	
+			mouseX=event.clientX - ctx.canvas.offsetLeft;
+			mouseY=event.clientY - ctx.canvas.offsetTop;
+			
+			dx=mouseX-x;
+			dy=mouseY-y;
+	
+			dist=Math.sqrt((dx*dx)+(dy*dy));
+			if(dist<radi)
+			{
+				//alert("yes");
+				ctx.fillStyle='white';
+				ctx.fillRect(0,0,400,300);
+				ctx.fillStyle='black';
+				ctx.drawImage(my_pic,0,0,400,300);
+				
+			}
+	
+	
+	});
+	//ctx.canvas.addEventListener('click',function(event));
+	//var my_pic = new Image();
+	//my_pic.src = "messi.jpg";
+	
+	//I want my image to load first in canvas.... before the window ie.html / canvas |in this case| is loaded
+	/*
+	my_pic.addEventListener("load",function(){
+	
+	//ctx.drawImage(my_pic,5,5,c.width,c.height);
+	},false);
+	*/
+	
+    
+</script>
+
+<!-- priti's code ends here-->
+<br/>
+<div id="ref">
+<p align="center">
+<a href="project3.html">refresh</a>
+</p>
+</div>
+
+<!--<script>
+       //document.getElementById("div1").innerHTML='<object type="type/html" data="b.html" ></object>';
+		 //document.getElementById("div1").innerHTML='<object type="text/html" data="b.html" ></object>';
+</script>
+-->
+
+<!--SEPARATION-->
+<div id="div2" style='background-image:url("back.png"); background-repeat: no-repeat; float:right;'>
+<div id="col">
+<img src="keyboard.png" id="one" width="90" height="40"  >
+<img src="K1.png" id="two" width="80" height="30" id="one">
+<img src="mouse.png" width="40" height="30">
+<img src="M.png" width="60" height="30" id="two">
+<img src="phone.png" width="40" height="40">
+<img src="P.png" width="60" height="30" id="three">
+<img src="record.png" width="40" height="40">
+<img src="R.png" width="60" height="30" id="four">
+<img src="Pen.png" width="60" height="30">
+<img src="PN.png" width="60" height="20" id="five">
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<iframe src="111.html" frameborder="0" height="1000px" width="1300px" scrolling="no"></iframe>
+</body>
+</html>

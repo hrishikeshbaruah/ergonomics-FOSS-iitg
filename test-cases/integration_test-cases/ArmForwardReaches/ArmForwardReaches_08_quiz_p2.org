@@ -1,0 +1,27 @@
+* Author: ABINASHA BORAH
+* Date Created: 28 Mar 2016
+* Environment
+  - OS: Windows 7,Ubuntu-16.04,CentOS-6
+  - Browsers: Firefox-42.0,Chrome-47.0,Chromium-45.0
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GB RAM , 
+  - Processor:i7
+
+* Objective
+  - To view ,take the quiz and then refresh the quiz of “Arm forward reaches, standing erect and forward bend” experiment
+
+* Pre conditions
+  - Refer to the first test case [[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/Arm%20Forward%20Reaches/ArmForwardReaches_01_usability_smk.org][ArmForwardReaches_01_usability_smk.org]]
+
+* Post conditions
+   - Nil
+* Test Steps
+  1. Refer to  ArmForwardReaches_06_quiz_smk.org
+  2. Click on the Refresh link
+  
+
+* Expected result
+  1. Refer to ArmForwardReaches_06_quiz_smk.org
+  2. By clicking on the refresh link, the page will be cleared
+
+* Review comments

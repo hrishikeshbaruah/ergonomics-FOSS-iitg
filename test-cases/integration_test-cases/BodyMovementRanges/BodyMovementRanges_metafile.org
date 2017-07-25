@@ -1,0 +1,8 @@
+S.no		Test case link
+1. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_01_usability_smk.org][BodyMovementRanges_01_usability_smk.org]]
+2. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_02_home_smk.org][BodyMovementRanges_02_home_smk.org]]
+3. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_03_referencedatasheet_smk.org][BodyMovementRanges_03_referencedatasheet_smk.org]]
+4. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_04_practicalexperience_smk - Copy.org][BodyMovementRanges_04_practicalexperience_smk - Copy.org]]
+5. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_05_applicationrelevance_smk.org][BodyMovementRanges_05_applicationrelevance_smk.org]]
+6. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_06_experiments_smk.org][BodyMovementRanges_06_experiments_smk.org]]
+7. 	[[https://github.com/Virtual-Labs/ergonomics-iitg/blob/master/test-cases/integration_test-cases/BodyMovementRanges/BodyMovementRanges_07_selfassesment_smk.org][BodyMovementRanges_07_selfassesment_smk.org]]

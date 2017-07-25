@@ -1,0 +1,130 @@
+{
+    "lab": {
+        "build_requirements": {
+            "platform": {
+                "arch": "i386", 
+                "build_steps": {
+                    "build": ["make -C ../src"],
+                    "configure": [],
+                    "post_build": [], 
+                    "pre_build": [], 
+                    "status": []
+                }, 
+                "installer": [], 
+                "os": "ubuntu", 
+                "osVersion": "12", 
+                "service_pack": ""
+            }
+        }, 
+        "description": {
+            "developer": [
+                {
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "dc@iitg.ernet.in", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIT Guwahati", 
+                    "name": "Debkumar Chakrabarti", 
+                    "organization": "", 
+                    "role": "Principal Investigator", 
+                    "title": "", 
+                    "web": ""
+                }, 
+                {
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "t.ravi@iitg.ernet.in", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIT Guwahati", 
+                    "name": "T.Ravi", 
+                    "organization": "", 
+                    "role": "Associate Project Scientist", 
+                    "title": "", 
+                    "web": ""
+                }, 
+				{
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "sangeetapandit.zz@gmail.com", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIT Guwahati", 
+                    "name": "Sangeeta Pandit", 
+                    "organization": "", 
+                    "role": "Assistant Project Scientist", 
+                    "title": "", 
+                    "web": ""
+                },
+				{
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "mdmanojdeori@gmail.com", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIT Guwahati", 
+                    "name": "Manoj Deori", 
+                    "organization": "", 
+                    "role": "Assistant Project Scientist", 
+                    "title": "", 
+                    "web": ""
+                }
+            ], 
+            "discipline": [
+                "Design"
+            ], 
+            "id": "design01", 
+            "integration_level": 5, 
+            "name": "Ergonomics Lab for Assessing Physical Aspects of Design", 
+            "server-side": true, 
+            "status": "Released", 
+            "type": ""
+        },  
+        "runtime_requirements": {
+            "platform": {
+                "arch": "i386", 
+                "hosting": "dedicated", 
+                "installer": ["sudo apt-get update","sudo apt-get install -y apache2"], 
+                "lab_actions": {
+                    "backup": [], 
+                    "clean": [], 
+                    "init": ["mv /var/www/index.html index.html.default","cp -r ../build/* /var/www/","chmod 775 /var/www/ -R"], 
+                    "pause": [], 
+                    "publish": [], 
+                    "restore": [
+                        "restore"
+                    ], 
+                    "resume": [], 
+                    "shutdown": [
+                        "service apache2 stop"
+                    ], 
+                    "start": [
+                        "service apache2 start"
+                    ], 
+                    "stats": [], 
+                    "stop": []
+                }, 
+                "memory": {
+                    "max_required": "2gb", 
+                    "min_required": "256mb"
+                }, 
+                "os": "ubuntu", 
+                "osVersion": "12", 
+                "servicepack": "", 
+                "storage": {
+                    "min_required": "10gb"
+                }
+            }
+        }
+    }, 
+    "template": "1.0"
+}

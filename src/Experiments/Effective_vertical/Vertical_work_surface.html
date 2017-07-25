@@ -1,0 +1,788 @@
+<html>
+<head>
+<style type="text/css">
+#myCanvas {
+    border: 1px #000 solid;
+    background:#fff;
+}
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="800" height="800"></canvas>
+<script>
+var canvas = document.getElementById('myCanvas');
+var mainCanvas = document.querySelector("#myCanvas");
+var context = document.getElementById('myCanvas').getContext('2d');
+var canvasWidth = mainCanvas.width;
+var canvasHeight = mainCanvas.height;
+var i = 11;
+var flag = 0;
+    var mouseX=0;
+    var mouseY=0;
+    var dx;
+    var dy;
+    var dist;
+    var dx1;
+    var dy1;
+    var dist1;
+    var dx2;
+    var dy2;
+    var dist2;
+    var dx3;
+    var dy3;
+    var dist3;
+context.onclick = next();
+context.fillStyle = "black";
+context.font = "bold 15px Arial";
+context.fillText("Back",15,362);
+context.fillText("Next",15,302);
+context.fillText("Pause",13,242);
+context.fillText("Play",15,182);
+ context.beginPath();
+   context.arc(30,150,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+    context.font = "bold 12px Arial";
+     context.fillText("|>",30-5,150+3);
+   context.beginPath();
+   context.arc(30,210,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+ context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+    context.font = "bold 15px Arial";
+    context.fillText("||",30-5,210+3);
+    context.beginPath();
+   context.arc(30,270,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+   context.lineWidth = 3;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 15px Arial";
+   context.fillText(">>",30-8,270+3);
+   context.beginPath();
+   context.arc(30,330,15,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = '#96bbda';
+   context.lineWidth = 2;
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 15px Arial";
+   context.fillText("<<",30-8,330+3);
+var bw = 390;
+var bh = 530;
+var p = 10;
+function drawBoard(){
+    for (var x = 70; x <= bw; x += 20) {
+        context.moveTo(0.5 + x + p, p+70);
+        context.lineTo(0.5 + x + p, bh + p);
+    }
+
+    for (var x = 70; x <= bh; x += 20) {
+        context.moveTo(p+70, 0.5 + x + p);
+        context.lineTo(bw + p,  0.5 + x + p);
+    }
+
+    context.strokeStyle = "black";
+    context.lineWidth=1;
+    context.stroke();
+    }
+function drawPoint() 
+{
+   context.drawImage(p9, 88, 78);
+   context.drawImage(p10, 110, 81);
+   context.beginPath();
+   context.arc(93,93,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(211,134,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(277.8,259.8,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(259,339.3,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(108,417.3,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(281,163,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(333,279,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();   
+   context.beginPath();
+   context.arc(295,425.5,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.beginPath();
+   context.arc(194.1,496,7,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+   context.fillStyle = "black";
+   context.font = "bold 13px Arial";
+   context.fillText("10'",240,374);
+   context.fillText("10'",266,138);
+   context.fillText("200 mm",287,370);
+   context.fillText("Below waist 10' inward inclination at",440,340);
+   context.fillText("every 200 mm",440,354);
+   context.fillText("Above head 10' inward inclination at",440,194);
+   context.fillText("every 200 mm",440,208);
+   context.fillText("Mid position, length from head to waist straight vertical",420,284);
+   context.font = "bold 15px Arial";
+   context.fillText("VERTICAL WORKSURFACE CURVATURE",438,237);
+   context.fillText("Arm reach are in leaning standing posture",444,103);
+   context.fillText("Arm reach are in erect standing posture",438,125);
+   context.fillText("A  a",104,115);
+   context.fillText("B",185,150);
+   context.fillText("C",290,266);
+   context.fillText("D",230,355);
+   context.fillText("E",106,440);
+   context.fillText("b",290,158);
+   context.fillText("c",345,278);
+   context.fillText("d",310,435);
+   context.fillText("e",192,515);
+   context.fillStyle = "black";
+   context.font = "17px Arial";
+   context.fillText("Standing Erect",430,430);
+   context.fillText("Leaning Forward",430,460);
+   context.font = "bold 28px Arial";
+   context.fillText("* ",415,438);
+   context.fillText("* ",415,468);
+   context.lineWidth = 1;
+   context.beginPath();
+   context.moveTo(80,335);
+   context.lineTo(90,335);
+   context.moveTo(100,335);
+   context.lineTo(110,335);
+   context.moveTo(120,335);
+   context.lineTo(130,335);
+   context.moveTo(140,335);
+   context.lineTo(150,335);
+   context.moveTo(160,335);
+   context.lineTo(170,335);
+   context.moveTo(180,335);
+   context.lineTo(190,335);
+   context.moveTo(200,335);
+   context.lineTo(210,335);
+   context.moveTo(220,335);
+   context.lineTo(230,335);
+   context.moveTo(240,335);
+   context.lineTo(250,335);
+   context.moveTo(260,335);
+   context.lineTo(270,335);
+   context.moveTo(280,335);
+   context.lineTo(290,335);
+   context.moveTo(300,335);
+   context.lineTo(310,335);
+   context.moveTo(320,335);
+   context.lineTo(330,335);
+   context.moveTo(340,335);
+   context.lineTo(350,335);
+   context.moveTo(360,335);
+   context.lineTo(370,335);
+   context.moveTo(380,335);
+   context.lineTo(390,335);
+   context.moveTo(400,335);
+   context.lineTo(410,335);
+   context.moveTo(420,335);
+   context.lineTo(430,335);
+   context.moveTo(80,189);
+   context.lineTo(90,189);
+   context.moveTo(100,189);
+   context.lineTo(110,189);
+   context.moveTo(120,189);
+   context.lineTo(130,189);
+   context.moveTo(140,189);
+   context.lineTo(150,189);
+   context.moveTo(160,189);
+   context.lineTo(170,189);
+   context.moveTo(180,189);
+   context.lineTo(190,189);
+   context.moveTo(200,189);
+   context.lineTo(210,189);
+   context.moveTo(220,189);
+   context.lineTo(230,189);
+   context.moveTo(240,189);
+   context.lineTo(250,189);
+   context.moveTo(260,189);
+   context.lineTo(270,189);
+   context.moveTo(280,189);
+   context.lineTo(290,189);
+   context.moveTo(300,189);
+   context.lineTo(310,189);
+   context.moveTo(320,189);
+   context.lineTo(330,189);
+   context.moveTo(340,189);
+   context.lineTo(350,189);
+   context.moveTo(360,189);
+   context.lineTo(370,189);
+   context.moveTo(380,189);
+   context.lineTo(390,189);
+   context.moveTo(400,189);
+   context.lineTo(410,189);
+   context.moveTo(420,189);
+   context.lineTo(430,189);
+   context.moveTo(262,189);
+   context.lineTo(265,110);
+   context.moveTo(262,335);
+   context.lineTo(265,410);
+   context.moveTo(254,378);
+   context.lineTo(265,378);
+   context.moveTo(254,150);
+   context.lineTo(265,150);
+   context.strokeStyle = 'black';
+   context.stroke();
+   context.lineWidth = 2;
+   context.beginPath();
+   context.moveTo(260,189);
+   context.lineTo(245,90);
+   context.moveTo(260,180);
+   context.lineTo(260,335);
+   context.moveTo(260,335);
+   context.lineTo(245,470);
+   context.moveTo(280,392);
+   context.lineTo(290,392);
+   context.moveTo(279,347);
+   context.lineTo(285,335);
+   context.lineTo(292,347);
+   context.moveTo(279,380);
+   context.lineTo(285,392);
+   context.lineTo(292,380);
+   context.moveTo(285,335);
+   context.lineTo(285,349);
+   context.moveTo(285,355);
+   context.lineTo(285,366);
+   context.moveTo(285,372);
+   context.lineTo(285,383);
+   context.moveTo(285,386);
+   context.lineTo(285,389);
+   context.moveTo(270,236);
+   context.lineTo(260,230);
+   context.lineTo(270,224);
+   context.moveTo(210,116);
+   context.lineTo(199,120);
+   context.lineTo(210,126);
+   context.moveTo(178,93);
+   context.lineTo(168,98);
+   context.lineTo(178,105);
+   context.strokeStyle = 'black';
+   context.stroke();
+   context.lineWidth = 2.5;
+   context.beginPath();
+   context.moveTo(263,230);
+   context.lineTo(270,230);
+   context.moveTo(280,230);
+   context.lineTo(290,230);
+   context.moveTo(300,230);
+   context.lineTo(310,230);
+   context.moveTo(320,230);
+   context.lineTo(330,230);
+   context.moveTo(340,230);
+   context.lineTo(350,230);
+   context.moveTo(360,230);
+   context.lineTo(370,230);
+   context.moveTo(380,230);
+   context.lineTo(390,230);
+   context.moveTo(400,230);
+   context.lineTo(410,230);
+   context.moveTo(420,230);
+   context.lineTo(430,230);
+   context.moveTo(204,120);
+   context.lineTo(210,120);
+   context.moveTo(220,120);
+   context.lineTo(230,120);
+   context.moveTo(240,120);
+   context.lineTo(250,120);
+   context.moveTo(260,120);
+   context.lineTo(270,120);
+   context.moveTo(280,120);
+   context.lineTo(290,120);
+   context.moveTo(300,120);
+   context.lineTo(310,120);
+   context.moveTo(320,120);
+   context.lineTo(330,120);
+   context.moveTo(340,120);
+   context.lineTo(350,120);
+   context.moveTo(360,120);
+   context.lineTo(370,120);
+   context.moveTo(380,120);
+   context.lineTo(390,120);
+   context.moveTo(400,120);
+   context.lineTo(410,120);
+   context.moveTo(420,120);
+   context.lineTo(430,120);
+   context.moveTo(171,98);
+   context.lineTo(180,98);
+   context.moveTo(190,98);
+   context.lineTo(200,98);
+   context.moveTo(210,98);
+   context.lineTo(220,98);
+   context.moveTo(230,98);
+   context.lineTo(240,98);
+   context.moveTo(250,98);
+   context.lineTo(260,98);
+   context.moveTo(270,98);
+   context.lineTo(280,98);
+   context.moveTo(290,98);
+   context.lineTo(300,98);
+   context.moveTo(310,98);
+   context.lineTo(320,98);
+   context.moveTo(330,98);
+   context.lineTo(340,98);
+   context.moveTo(350,98);
+   context.lineTo(360,98);
+   context.moveTo(370,98);
+   context.lineTo(380,98);
+   context.moveTo(390,98);
+   context.lineTo(400,98);
+   context.moveTo(410,98);
+   context.lineTo(420,98);
+   context.moveTo(430,98);
+   context.lineTo(440,98);
+   context.strokeStyle = 'red';
+   context.stroke();
+   context.strokeStyle = 'black';
+}
+var my_pic1 = new Image();
+var my_pic2 = new Image();
+var my_pic3 = new Image();
+var my_pic4 = new Image();
+var my_pic5 = new Image();
+var my_pic6 = new Image();
+var my_pic7 = new Image();
+var my_pic8 = new Image();
+var my_pic9 = new Image();
+my_pic1.src = "1.png";
+my_pic2.src = "2.png";
+my_pic3.src = "3.png";
+my_pic4.src = "4.png";
+my_pic5.src = "5.png";
+my_pic6.src = "6.png";
+my_pic7.src = "7.png";
+my_pic8.src = "8.png";
+my_pic9.src = "9.png";
+var p1 = new Image();
+var p2 = new Image();
+var p3 = new Image();
+var p4 = new Image();
+var p5 = new Image();
+var p6 = new Image();
+var p7 = new Image();
+var p8 = new Image();
+var p9 = new Image();
+var p10 = new Image();
+p1.src = "11.png";
+p2.src = "22.png";
+p3.src = "33.png";
+p4.src = "44.png";
+p5.src = "55.png";
+p6.src = "66.png";
+p7.src = "77.png";
+p8.src = "88.png";
+p9.src = "10.png";
+p10.src = "12.png";
+function draw() {
+if(flag==0)
+{
+if(i==0)
+{
+context.drawImage(my_pic1, 55, 66);
+context.drawImage(p1, 70, 580);
+}
+if(i==1)
+{
+context.drawImage(my_pic1, 55, 66);
+context.drawImage(p1, 70, 580);
+}
+else if(i==2)
+{
+context.drawImage(my_pic2, 63, 117);
+context.drawImage(p2, 70, 580);
+}
+else if(i==3)
+{
+context.drawImage(my_pic3, 66, 179);
+context.drawImage(p3, 70, 580);
+}
+else if(i==4)
+{
+context.drawImage(my_pic4, 59, 176);
+context.drawImage(p4, 70, 580);
+}
+else if(i==5)
+{
+context.drawImage(my_pic5, 59, 177);
+context.drawImage(p5, 70, 580);
+}
+else if(i==6)
+{
+   context.drawImage(my_pic5, 59, 177);
+   context.beginPath();
+   context.arc(108,417.3,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+}
+else if(i==7)
+{
+context.drawImage(my_pic6, 56, 147);
+context.drawImage(p6, 70, 580);
+}
+else if(i==8)
+{
+context.drawImage(my_pic7, 64, 212);
+context.drawImage(p7, 70, 580);
+}
+else if(i==9)
+{
+context.drawImage(my_pic8, 63.6, 279);
+context.drawImage(p8, 70, 580);
+}
+else if(i==10)
+{
+context.drawImage(my_pic9, 61, 299);
+context.fillStyle = "black";
+context.font = "bold 20px Arial";
+context.fillText("200 mm",200,570);
+}
+else if(i==11)
+{
+context.drawImage(my_pic5, 59, 177);
+   context.lineWidth = 2.5;
+   context.beginPath();
+   context.moveTo(80,335);
+   context.lineTo(90,335);
+   context.moveTo(100,335);
+   context.lineTo(110,335);
+   context.moveTo(120,335);
+   context.lineTo(130,335);
+   context.moveTo(140,335);
+   context.lineTo(150,335);
+   context.moveTo(160,335);
+   context.lineTo(170,335);
+   context.moveTo(180,335);
+   context.lineTo(190,335);
+   context.moveTo(200,335);
+   context.lineTo(210,335);
+   context.moveTo(220,335);
+   context.lineTo(230,335);
+   context.moveTo(240,335);
+   context.lineTo(250,335);
+   context.moveTo(260,335);
+   context.lineTo(270,335);
+   context.moveTo(280,335);
+   context.lineTo(290,335);
+   context.moveTo(300,335);
+   context.lineTo(310,335);
+   context.moveTo(320,335);
+   context.lineTo(330,335);
+   context.moveTo(340,335);
+   context.lineTo(350,335);
+   context.moveTo(360,335);
+   context.lineTo(370,335);
+   context.moveTo(380,335);
+   context.lineTo(390,335);
+   context.moveTo(400,335);
+   context.lineTo(410,335);
+   context.moveTo(420,335);
+   context.lineTo(430,335);
+   context.moveTo(80,189);
+   context.lineTo(90,189);
+   context.moveTo(100,189);
+   context.lineTo(110,189);
+   context.moveTo(120,189);
+   context.lineTo(130,189);
+   context.moveTo(140,189);
+   context.lineTo(150,189);
+   context.moveTo(160,189);
+   context.lineTo(170,189);
+   context.moveTo(180,189);
+   context.lineTo(190,189);
+   context.moveTo(200,189);
+   context.lineTo(210,189);
+   context.moveTo(220,189);
+   context.lineTo(230,189);
+   context.moveTo(240,189);
+   context.lineTo(250,189);
+   context.moveTo(260,189);
+   context.lineTo(270,189);
+   context.moveTo(280,189);
+   context.lineTo(290,189);
+   context.moveTo(300,189);
+   context.lineTo(310,189);
+   context.moveTo(320,189);
+   context.lineTo(330,189);
+   context.moveTo(340,189);
+   context.lineTo(350,189);
+   context.moveTo(360,189);
+   context.lineTo(370,189);
+   context.moveTo(380,189);
+   context.lineTo(390,189);
+   context.moveTo(400,189);
+   context.lineTo(410,189);
+   context.moveTo(420,189);
+   context.lineTo(430,189);
+   context.strokeStyle = 'black';
+   context.stroke();
+i=0;
+}
+else
+{
+i=0;
+}
+}
+else
+{
+if(i==1)
+{
+context.drawImage(my_pic1, 55, 66);
+context.drawImage(p1, 70, 600);
+}
+else if(i==2)
+{
+context.drawImage(my_pic2, 63, 117);
+context.drawImage(p2, 70, 580);
+}
+else if(i==3)
+{
+context.drawImage(my_pic3, 66, 179);
+context.drawImage(p3, 70, 580);
+}
+else if(i==4)
+{
+context.drawImage(my_pic4, 59, 176);
+context.drawImage(p4, 70, 580);
+}
+else if(i==5)
+{
+context.drawImage(my_pic5, 59, 177);
+context.drawImage(p5, 70, 580);
+}
+else if(i==6)
+{
+   context.drawImage(my_pic5, 59, 177);
+   context.beginPath();
+   context.arc(108,417.3,4.5,0,Math.PI*2,false);
+   context.closePath();
+   context.fillStyle = 'black';
+   context.stroke();
+   context.fill();
+}
+else if(i==7)
+{
+context.drawImage(my_pic6, 56, 147);
+context.drawImage(p6, 70, 580);
+}
+else if(i==8)
+{
+context.drawImage(my_pic7, 64, 212);
+context.drawImage(p7, 70, 580);
+}
+else if(i==9)
+{
+context.drawImage(my_pic8, 63.6, 279);
+context.drawImage(p8, 70, 580);
+}
+else if(i==10)
+{
+context.drawImage(my_pic9, 61, 299);
+context.fillStyle = "black";
+context.font = "bold 20px Arial";
+context.fillText("200 mm",200,570);
+}
+else if(i==11)
+{
+context.drawImage(my_pic5, 59, 177);
+   context.lineWidth = 2.5;
+   context.beginPath();
+   context.moveTo(80,335);
+   context.lineTo(90,335);
+   context.moveTo(100,335);
+   context.lineTo(110,335);
+   context.moveTo(120,335);
+   context.lineTo(130,335);
+   context.moveTo(140,335);
+   context.lineTo(150,335);
+   context.moveTo(160,335);
+   context.lineTo(170,335);
+   context.moveTo(180,335);
+   context.lineTo(190,335);
+   context.moveTo(200,335);
+   context.lineTo(210,335);
+   context.moveTo(220,335);
+   context.lineTo(230,335);
+   context.moveTo(240,335);
+   context.lineTo(250,335);
+   context.moveTo(260,335);
+   context.lineTo(270,335);
+   context.moveTo(280,335);
+   context.lineTo(290,335);
+   context.moveTo(300,335);
+   context.lineTo(310,335);
+   context.moveTo(320,335);
+   context.lineTo(330,335);
+   context.moveTo(340,335);
+   context.lineTo(350,335);
+   context.moveTo(360,335);
+   context.lineTo(370,335);
+   context.moveTo(380,335);
+   context.lineTo(390,335);
+   context.moveTo(400,335);
+   context.lineTo(410,335);
+   context.moveTo(420,335);
+   context.lineTo(430,335);
+   context.moveTo(80,189);
+   context.lineTo(90,189);
+   context.moveTo(100,189);
+   context.lineTo(110,189);
+   context.moveTo(120,189);
+   context.lineTo(130,189);
+   context.moveTo(140,189);
+   context.lineTo(150,189);
+   context.moveTo(160,189);
+   context.lineTo(170,189);
+   context.moveTo(180,189);
+   context.lineTo(190,189);
+   context.moveTo(200,189);
+   context.lineTo(210,189);
+   context.moveTo(220,189);
+   context.lineTo(230,189);
+   context.moveTo(240,189);
+   context.lineTo(250,189);
+   context.moveTo(260,189);
+   context.lineTo(270,189);
+   context.moveTo(280,189);
+   context.lineTo(290,189);
+   context.moveTo(300,189);
+   context.lineTo(310,189);
+   context.moveTo(320,189);
+   context.lineTo(330,189);
+   context.moveTo(340,189);
+   context.lineTo(350,189);
+   context.moveTo(360,189);
+   context.lineTo(370,189);
+   context.moveTo(380,189);
+   context.lineTo(390,189);
+   context.moveTo(400,189);
+   context.lineTo(410,189);
+   context.moveTo(420,189);
+   context.lineTo(430,189);
+   context.strokeStyle = 'black';
+   context.stroke();
+}
+}
+}
+window.requestAnimationFrame(function loop() {
+context.clearRect(70, 70, 800, 800);
+if(flag==0){
+i +=1;
+}
+drawBoard();
+drawPoint();
+draw();
+ if(flag==0){
+setTimeout(function() {
+window.requestAnimationFrame(loop);
+},700);
+}
+else
+{
+window.requestAnimationFrame(loop);
+}
+});
+function next()
+{
+context.canvas.addEventListener('click',function(event){
+var rect = canvas.getBoundingClientRect();
+	mouseX=event.clientX-rect.left ;
+	mouseY=event.clientY-rect.top ;
+	//alert("clicked");
+
+
+/*mouseX=event.clientX - context.canvas.offsetLeft;
+mouseY=event.clientY - context.canvas.offsetTop;*/
+dx=mouseX-30;
+dy=mouseY-150;
+dist=Math.sqrt((dx*dx)+(dy*dy));
+dx1=mouseX-30;
+dy1=mouseY-210;
+dist1=Math.sqrt((dx1*dx1)+(dy1*dy1));
+dx2=mouseX-30;
+dy2=mouseY-270;
+dist2=Math.sqrt((dx2*dx2)+(dy2*dy2));
+dx3=mouseX-30;
+dy3=mouseY-330;
+dist3=Math.sqrt((dx3*dx3)+(dy3*dy3));
+if(dist<=15){
+flag=0;
+}
+else if(dist1<=15){
+flag=1;
+}
+else if(dist2<=15){
+flag=1;
+if(i<11)
+{
+i +=1;
+}
+else
+{
+i=1;
+}
+}
+else if(dist3<15){
+flag=1;
+if(i!=1)
+{
+if(i!=11)
+{
+i -=1;
+}
+}
+else
+{
+i=11;
+}
+}
+});
+}
+</script>
+</body>
+</html>
